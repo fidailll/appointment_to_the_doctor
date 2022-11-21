@@ -37,7 +37,7 @@
         android:fontFamily="@font/noto_sans"
         android:text="@string/auth"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
 
         app:cornerRadius="15dp"
@@ -69,7 +69,7 @@
         android:layout_height="60dp"
         android:fontFamily="@font/noto_sans"
         android:text="@string/regs"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,8 +79,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.85" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
