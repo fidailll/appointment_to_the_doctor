@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Запись к врачу</string>
+    <string name="welcome_app">Добро пожаловать в мобильное приложение к записи к врачу</string>
+    <string name="regs">Регистрация</string>
+    <string name="auth">Авторизация</string>
+    <string name="do_you_have_an_account">У вас есть аккаунт?</string>
+    <string name="sdfds">TODO</string>
+</resources>
