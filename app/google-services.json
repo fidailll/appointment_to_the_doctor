@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "249234678750",
+    "project_id": "appointment-to-the-docto-129cb",
+    "storage_bucket": "appointment-to-the-docto-129cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249234678750:android:f1e9e24576bb87f2c4b34f",
+        "android_client_info": {
+          "package_name": "com.example.appointmenttothedoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249234678750-74q3f2c729nkmat8n87fdae2g6f1lph7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJDmXoY_n2RkWJPrKT4jetxbZuvARUu70"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249234678750-74q3f2c729nkmat8n87fdae2g6f1lph7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
