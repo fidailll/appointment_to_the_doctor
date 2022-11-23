@@ -3,8 +3,11 @@ package com.example.appointmenttothedoctor;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import android.os.Bundle;
 import com.google.firebase.auth.AuthResult;
@@ -14,17 +17,49 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
+    Button button1;
+    Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        button1 = findViewById(R.id.button1);
+        button2 = findViewById(R.id.button2);
+
+        //Обработчик нажатия на кнопку Авторизация
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                System.out.println("Авторизация");
+                Intent intent = new Intent(MainActivity.this, AuthPageActivity.class);
+                startActivity(intent);
+            }
+        } );
+
+        //Обработчик нажатия на кнопку Регистрация
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                System.out.println("Регистрация");
+
+            }
+        } );
+
         // [START initialize_auth]
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         createAccount("fidail2504@mail.ru",  "sdjfjksdfj");
     }
 
+
+//   void onClickButton1() {
+//       button1.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View v) {
+//           }
+//       });
+//   }
 
 
     private static final String TAG = "EmailPassword";
