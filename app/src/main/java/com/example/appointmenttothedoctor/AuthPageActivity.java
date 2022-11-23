@@ -13,6 +13,6 @@ public class AuthPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.auth_page);
-        //
+        //3434
     }
 }
