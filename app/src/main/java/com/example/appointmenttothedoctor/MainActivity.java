@@ -17,18 +17,18 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
-    Button button1;
-    Button button2;
+    Button btRegs;
+    Button btAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button1 = findViewById(R.id.button1);
-        button2 = findViewById(R.id.button2);
+        btAuth = findViewById(R.id.btAuth);
+        btRegs = findViewById(R.id.btRegs);
 
         //Обработчик нажатия на кнопку Авторизация
-        button1.setOnClickListener(new View.OnClickListener() {
+        btAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 System.out.println("Авторизация");
@@ -38,11 +38,12 @@ public class MainActivity extends AppCompatActivity {
         } );
 
         //Обработчик нажатия на кнопку Регистрация
-        button2.setOnClickListener(new View.OnClickListener() {
+        btRegs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
                 System.out.println("Регистрация");
-
+                Intent intent = new Intent(MainActivity.this, RegsPageActivity.class);
+                startActivity(intent);
             }
         } );
 
