@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    app:errorEnabled="true"
     >
 
     <TextView
@@ -18,8 +19,24 @@
         android:fontFamily="@font/noto_sans"
         android:textSize="32sp"/>
 
+<!--    <EditText-->
+<!--        android:id="@+id/editTextTextName"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="35dp"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        android:background="@drawable/rounded_corner_view"-->
+<!--        android:fontFamily="@font/noto_sans"-->
+<!--        android:hint="ФИО"-->
+<!--        android:inputType="textPersonName"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textStyle="bold"-->
+<!--      />-->
+
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="35dp"
@@ -27,24 +44,6 @@
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_corner_view"
-        android:fontFamily="@font/noto_sans"
-        android:hint="ФИО"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textStyle="bold"
-
-      />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded_corner_view"
-
         android:hint="Email"
         android:textAlignment="center"
         android:fontFamily="@font/noto_sans"
@@ -53,8 +52,42 @@
 
        />
 
+<!--    <EditText-->
+<!--        android:id="@+id/editTextPhone"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="35dp"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        android:background="@drawable/rounded_corner_view"-->
+
+<!--        android:hint="Номер телефона"-->
+<!--        android:inputType="phone"-->
+<!--        android:textAlignment="center"-->
+<!--        android:fontFamily="@font/noto_sans"-->
+<!--        android:textStyle="bold"-->
+
+<!--         />-->
+
+<!--    <EditText-->
+<!--        android:id="@+id/editTextDateOfBirth"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginStart="35dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginEnd="35dp"-->
+<!--        android:layout_marginBottom="5dp"-->
+<!--        android:background="@drawable/rounded_corner_view"-->
+<!--        android:hint="Дата рождения"-->
+<!--        android:inputType="date"-->
+<!--        android:textAlignment="center"-->
+<!--        android:fontFamily="@font/noto_sans"-->
+<!--        android:textStyle="bold"-->
+<!--        />-->
+
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editTextPass"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="35dp"
@@ -62,48 +95,28 @@
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_corner_view"
-
-        android:hint="Номер телефона"
-        android:inputType="phone"
-        android:textAlignment="center"
-        android:fontFamily="@font/noto_sans"
-        android:textStyle="bold"
-
-         />
-
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded_corner_view"
-
-        android:hint="Дата рождения"
-        android:inputType="date"
-        android:textAlignment="center"
-        android:fontFamily="@font/noto_sans"
-        android:textStyle="bold"
-        />
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded_corner_view"
-
         android:hint="Пароль"
         android:textAlignment="center"
         android:fontFamily="@font/noto_sans"
         android:textStyle="bold"
         android:inputType="textPassword"
       />
+
+    <EditText
+        android:id="@+id/editTextRepeatPass"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/rounded_corner_view"
+        android:hint="Повторите пароль"
+        android:textAlignment="center"
+        android:fontFamily="@font/noto_sans"
+        android:textStyle="bold"
+        android:inputType="textPassword"
+        />
     <Button
         android:id="@+id/btSend"
         android:layout_width="255dp"
