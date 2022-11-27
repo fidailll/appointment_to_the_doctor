@@ -7,32 +7,26 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.appointmenttothedoctor.R;
-import com.google.firebase.auth.FirebaseAuth;
-
 public class AuthPageActivity extends AppCompatActivity {
-
-    Button btEnter;
-    Button btBack;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.auth_page);
-        btEnter = findViewById(R.id.btEnter);
-        btBack = findViewById(R.id.btBack);
+    }
 
+    public void onClickBtEnter(View view){
+        System.out.println("Enter");
+        Intent intent = new Intent(AuthPageActivity.this, MenuPageActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
-        btBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Переход назад
-                Intent intent = new Intent(AuthPageActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+    public void onClickBtBack(View view){
+        System.out.println("Back");
+        Intent intent = new Intent(AuthPageActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

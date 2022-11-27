@@ -13,10 +13,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:gravity="center"
-
     android:orientation="vertical"
     tools:ignore="MissingConstraints"
     tools:layout_editor_absoluteX="1dp"
@@ -33,8 +32,9 @@
         android:id="@+id/imageView1"
         android:layout_width="247dp"
         android:layout_height="304dp"
-
-        app:srcCompat="@drawable/hello_doctor1" />
+        app:srcCompat="@drawable/hello_doctor1"
+        android:layout_marginTop="10dp"
+        />
 
     <Button
         android:id="@+id/btRegs"
@@ -42,16 +42,20 @@
         android:layout_height="60dp"
         android:fontFamily="@font/noto_sans"
         android:text="@string/regs"
+        android:onClick="onClickBtRegs"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:cornerRadius="15dp" />
+        app:cornerRadius="15dp"
+        android:layout_marginTop="10dp"/>
 
-    <CheckedTextView
-        android:id="@+id/checkedTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/do_you_have_an_account"
-        android:textColor="@color/help_text" />
+<!--    <CheckedTextView-->
+<!--        android:id="@+id/checkedTextView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="@string/do_you_have_an_account"-->
+<!--        android:onClick="onClickBt"-->
+<!--        android:textColor="@color/help_text"-->
+<!--        android:layout_marginTop="30dp"/>-->
 
     <Button
         android:id="@+id/btAuth"
@@ -59,10 +63,11 @@
         android:layout_height="60dp"
         android:fontFamily="@font/noto_sans"
         android:text="@string/auth"
+        android:onClick="onClickBtAuth"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-
+        android:layout_marginTop="10dp"
         app:cornerRadius="15dp" />
 </LinearLayout>
 

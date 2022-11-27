@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Запись к врачу</string>
-    <string name="welcome_app">Добро пожаловать в мобильное приложение к записи к врачу</string>
+    <string name="welcome_app">Добро пожаловать в мобильное приложение для записи к врачу</string>
     <string name="regs">Регистрация</string>
     <string name="auth">Авторизация</string>
     <string name="do_you_have_an_account">У вас есть аккаунт?</string>
-    <string name="sdfds">TODO</string>
+    <string name="title_home">Домой</string>
+    <string name="title_history">История заявок</string>
+    <string name="title_profile">Профиль</string>
+    <string name="todo">TODO</string>
 </resources>

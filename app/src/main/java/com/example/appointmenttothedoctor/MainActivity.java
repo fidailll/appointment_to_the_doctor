@@ -2,14 +2,13 @@ package com.example.appointmenttothedoctor;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
-import android.os.Bundle;
+
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -17,35 +16,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
-    Button btRegs;
-    Button btAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btAuth = findViewById(R.id.btAuth);
-        btRegs = findViewById(R.id.btRegs);
 
-        //Обработчик нажатия на кнопку Авторизация
-        btAuth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                System.out.println("Авторизация");
-                Intent intent = new Intent(MainActivity.this, AuthPageActivity.class);
-                startActivity(intent);
-            }
-        } );
-
-        //Обработчик нажатия на кнопку Регистрация
-        btRegs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                System.out.println("Регистрация");
-                Intent intent = new Intent(MainActivity.this, RegsPageActivity.class);
-                startActivity(intent);
-            }
-        } );
 
         // [START initialize_auth]
         // Initialize Firebase Auth
@@ -54,14 +31,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-//   void onClickButton1() {
-//       button1.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View v) {
-//           }
-//       });
-//   }
+     public void onClickBtRegs(View view) {
+         System.out.println("Регистрация");
+                Intent intent = new Intent(MainActivity.this, RegsPageActivity.class);
+                startActivity(intent);
+         finish();
+     }
 
+     public void onClickBtAuth(View view){
+         System.out.println("Авторизация");
+         Intent intent = new Intent(MainActivity.this, AuthPageActivity.class);
+         startActivity(intent);
+         finish();
+    }
 
     private static final String TAG = "EmailPassword";
     // [START declare_auth]
