@@ -6,13 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".PassRecoveryActivity">
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/auth"
+        android:text="@string/password_recovery"
         android:textStyle="bold"
         android:fontFamily="@font/noto_sans"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,27 +23,27 @@
         app:layout_constraintVertical_bias="0.3"
         android:textSize="32sp"/>
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="163dp"
-        android:layout_height="207dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.1"
-        app:srcCompat="@drawable/auth" />
+<!--    <ImageView-->
+<!--        android:id="@+id/imageView1"-->
+<!--        android:layout_width="163dp"-->
+<!--        android:layout_height="207dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.1"-->
+<!--        app:srcCompat="@drawable/auth" />-->
 
     <EditText
-        android:id="@+id/editTextEmailAddress"
+        android:id="@+id/editTextEnterYourEmail"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/rounded_corner_view"
-        android:hint="@string/email"
+        android:hint="@string/enter_yor_email"
         android:textAlignment="center"
         android:fontFamily="@font/noto_sans"
         android:textStyle="bold"
@@ -54,70 +55,35 @@
         app:layout_constraintVertical_bias="0.4"
         />
 
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rounded_corner_view"
-        android:fontFamily="@font/noto_sans"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/btEnter"
+        android:id="@+id/btReestablish"
         android:layout_width="255dp"
         android:layout_height="60dp"
         android:fontFamily="@font/noto_sans"
-        android:text="@string/enter"
+        android:text="@string/reestablish"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="15dp"
-        android:onClick="onClickBtEnter"
+        android:onClick="onClickBtReestablish"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.6" />
 
     <Button
-        android:id="@+id/btForgotYourPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#00FFFFFF"
-        android:text="@string/forgot_your_password"
-        android:textColor="#6A755D"
-        android:onClick="onClickBtForgotYourPassword"
-        />
-
-    <Button
-        android:id="@+id/btBack"
+        android:id="@+id/btAuthPage"
         android:layout_width="255dp"
         android:layout_height="60dp"
         android:fontFamily="@font/noto_sans"
-        android:text="@string/back"
-        android:onClick="onClickBtBack"
+        android:text="@string/auth"
+        android:onClick="onClickBtAuthPage"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
-
-
+        android:layout_marginTop="10dp"
+        app:cornerRadius="15dp" />
 
 </LinearLayout>

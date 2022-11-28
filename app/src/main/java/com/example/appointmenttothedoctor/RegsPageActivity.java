@@ -4,6 +4,7 @@ package com.example.appointmenttothedoctor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -59,6 +60,13 @@ public class RegsPageActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+   public void onClickBtYouAlreadyHaveAnAccount(View view){
+       Log.d("onClick", "YouAlreadyHaveAnAccount");
+       Intent intent = new Intent(RegsPageActivity.this, AuthPageActivity.class);
+       startActivity(intent);
+       finish();
+   }
 
 
     /// Проверка на наличия текста в EditText

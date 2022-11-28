@@ -1,11 +1,29 @@
 <resources>
     <string name="app_name">Запись к врачу</string>
     <string name="welcome_app">Добро пожаловать в мобильное приложение для записи к врачу</string>
+    <string name="todo">TODO</string>
+    <string name="more_vert">More vert</string>
+    <string name="password_recovery">Восстановление пароля</string>
+
+
+    <!-- Название Button-->
     <string name="regs">Регистрация</string>
     <string name="auth">Авторизация</string>
     <string name="do_you_have_an_account">У вас есть аккаунт?</string>
     <string name="title_home">Домой</string>
     <string name="title_history">История заявок</string>
     <string name="title_profile">Профиль</string>
-    <string name="todo">TODO</string>
+    <string name="settings">Настройки</string>
+    <string name="sign_out">Выйти из профиля</string>
+    <string name="back">Назад</string>
+    <string name="enter">Войти</string>
+    <string name="send">Отпраавить</string>
+    <string name="forgot_your_password">Забыли пароль?</string>
+    <string name="reestablish">Востановить</string>
+
+    <!-- Подсказки в EditText -->
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="enter_yor_email">Введите свой Email</string>
 </resources>

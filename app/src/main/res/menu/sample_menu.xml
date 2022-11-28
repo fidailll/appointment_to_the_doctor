@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--    <item-->
+<!--        android:id="@+id/action_settings"-->
+<!--        android:icon="@drawable/ic_settings"-->
+<!--        android:title="@string/settings"-->
+<!--        app:showAsAction="ifRoom"/>-->
+<!--    <item-->
+<!--        android:id="@+id/action_done"-->
+<!--        android:icon="@drawable/ic_done"-->
+<!--        android:title="@string/done"-->
+<!--        app:showAsAction="ifRoom|withText"/>-->
+
+        <item
+            android:id="@+id/more_vert"
+            android:icon="@drawable/outline_more_vert_24"
+            android:title="@string/sign_out"
+
+            />
+<!--        <item-->
+<!--            android:id="@+id/more_vert"-->
+<!--            android:icon="@drawable/outline_more_vert_24"-->
+<!--            android:title="@string/more_vert"-->
+<!--            />-->
+<!--        <item-->
+<!--            android:id="@+id/more_vert"-->
+<!--            android:icon="@drawable/outline_more_vert_24"-->
+<!--            android:title="@string/more_vert"-->
+<!--            />-->
+</menu>

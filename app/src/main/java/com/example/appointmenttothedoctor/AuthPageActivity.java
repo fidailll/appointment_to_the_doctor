@@ -3,6 +3,7 @@ package com.example.appointmenttothedoctor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -51,7 +52,12 @@ public class AuthPageActivity extends AppCompatActivity {
         finish();
     }
 
-
+    public void onClickBtForgotYourPassword(View view){
+        Log.d("onClick", "BtForgotYourPassword");
+        Intent intent = new Intent(AuthPageActivity.this, PassRecoveryActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
 ////    //При инициализации Activity проверяет вошел ли пользователь в данный момент
 //    @Override

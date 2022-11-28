@@ -14,8 +14,11 @@
         android:theme="@style/Theme.AppointmentToTheDoctor"
         tools:targetApi="31">
         <activity
+            android:name=".PassRecoveryActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuPageActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".AuthPageActivity"
             android:exported="true" />
