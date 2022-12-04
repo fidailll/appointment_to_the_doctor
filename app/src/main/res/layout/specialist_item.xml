@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal|top"
+    android:orientation="horizontal"
+
+    tools:actionBarNavMode="list"
+    tools:ignore="MissingConstraints,UselessParent"
+    tools:layout_editor_absoluteX="1dp"
+    tools:layout_editor_absoluteY="1dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@color/button_light_green"
+        android:onClick="onClickServices"
+        app:cardBackgroundColor="@color/button_light_green"
+        app:cardCornerRadius="15dp">
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_margin="10dp"-->
+        <!--            android:gravity="center_horizontal|top"-->
+        <!--            android:orientation="vertical"-->
+        <!--            tools:actionBarNavMode="list"-->
+        <!--            tools:ignore="MissingConstraints,UselessParent"-->
+        <!--            tools:layout_editor_absoluteX="1dp"-->
+        <!--            tools:layout_editor_absoluteY="1dp">-->
+        <!--        </LinearLayout>-->
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/avatarImageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/button_light_green"
+                android:scaleType="centerCrop"
+                android:src="@drawable/outline_person_24" />
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_toEndOf="@+id/avatarImageView"
+                android:text="Text"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/experienceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+
+                android:layout_marginBottom="10dp"
+                android:text="Text"
+                android:textSize="18dp" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

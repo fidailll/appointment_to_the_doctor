@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
      public void onClickBtRegs(View view) {
          Log.d("onClick", "Regs");
                 Intent intent = new Intent(MainActivity.this, RegsPageActivity.class);

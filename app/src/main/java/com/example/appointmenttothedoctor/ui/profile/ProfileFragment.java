@@ -7,15 +7,23 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.appointmenttothedoctor.User;
 import com.example.appointmenttothedoctor.databinding.FragmentProfileBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileFragment extends Fragment {
-
     private FragmentProfileBinding binding;
 
+  //TextView text;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -25,11 +33,16 @@ public class ProfileFragment extends Fragment {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView1 = binding.emailAddress;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView1::setText);
+        final TextView textView = binding.emailAddress;
+        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+
+//        final TextView textView1 = binding.emailVerified;
+//        notificationsViewModel.getText1().observe(getViewLifecycleOwner(), textView1::setText);
+
 
 
         return root;
+        //text.setText();
 
 
     }
@@ -39,6 +52,7 @@ public class ProfileFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 
 //    public void getUserProfile() {
 //        // [START get_user_profile]

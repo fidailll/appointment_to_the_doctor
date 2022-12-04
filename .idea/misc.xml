@@ -23,19 +23,24 @@
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/drawable/rounded_corner_view.xml" value="0.2915" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout-land/fragment_profile.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout-sw600dp/fragment_profile.xml" value="0.23668032786885246" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/activity_chat_page.xml" value="0.22665457842248413" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/activity_main2.xml" value="0.22210614291684078" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/activity_menu_page.xml" value="0.21717171717171718" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/activity_pass_recovery.xml" value="0.20436083796494228" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/activity_specialist_page.xml" value="0.28003420265070544" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/activity_specilization_page.xml" value="0.1" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/auth_page.xml" value="0.1" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/fragment_dashboard.xml" value="0.36672710788757934" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/fragment_history.xml" value="0.1944696282864914" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/fragment_home.xml" value="0.36672710788757934" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/fragment_notifications.xml" value="0.36672710788757934" />
-        <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/fragment_profile.xml" value="0.15" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/fragment_schedule.xml" value="0.36672710788757934" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/registration_page.xml" value="0.22210614291684078" />
-        <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/regs_page.xml" value="0.1" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/regs_page.xml" value="0.33" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/specialist_item.xml" value="0.1" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/layout/specilization_item.xml" value="0.27276613937580163" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2275132275132275" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/menu/sample_menu.xml" value="0.45361265498076103" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />

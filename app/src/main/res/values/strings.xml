@@ -1,12 +1,22 @@
 <resources>
     <string name="app_name">Запись к врачу</string>
+    <string name="write_to_the_doctor">Написать врачу</string>
     <string name="welcome_app">Добро пожаловать в мобильное приложение для записи к врачу</string>
     <string name="todo">TODO</string>
     <string name="more_vert">More vert</string>
     <string name="password_recovery">Восстановление пароля</string>
+    <string name="experience">Стаж</string>
 
 
-    <!-- Название Button-->
+    <!-- Названия Activity-->
+    <string name="сhat_with_a_doctor">Чат с врачом</string>
+    <string name="specialization">Специализация</string>
+    <string name="service">Услуга</string>
+    <string name="specialist">Специалисты</string>
+    <string name="free_time">Свободное время</string>
+
+
+    <!-- Названия Button-->
     <string name="regs">Регистрация</string>
     <string name="auth">Авторизация</string>
     <string name="do_you_have_an_account">У вас есть аккаунт?</string>

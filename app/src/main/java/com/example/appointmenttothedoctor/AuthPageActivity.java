@@ -3,7 +3,6 @@ package com.example.appointmenttothedoctor;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,8 +31,8 @@ public class AuthPageActivity extends AppCompatActivity {
         setContentView(R.layout.auth_page);
         mAuth = FirebaseAuth.getInstance();
 
-        emailEditText = findViewById(R.id.editTextEmailAddress);
-        passEditText = findViewById(R.id.editTextPassword);
+        emailEditText = findViewById(R.id.emailAddressEditText);
+        passEditText = findViewById(R.id.passwordEditText);
     }
 
     public void onClickBtEnter(View view){

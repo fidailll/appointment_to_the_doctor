@@ -20,13 +20,12 @@ public class PassRecoveryActivity extends AppCompatActivity {
 
     EditText emailEditText;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pass_recovery);
 
-        emailEditText = findViewById(R.id.editTextEnterYourEmail);
+        emailEditText = findViewById(R.id.enterYourEmailEditText);
     }
 
     public void onClickBtReestablish(View view){

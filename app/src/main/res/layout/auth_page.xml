@@ -34,7 +34,7 @@
         app:srcCompat="@drawable/auth" />
 
     <EditText
-        android:id="@+id/editTextEmailAddress"
+        android:id="@+id/emailAddressEditText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="35dp"
@@ -55,7 +55,7 @@
         />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="35dp"
