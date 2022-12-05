@@ -13,7 +13,6 @@ public class AwesomeServicesAdapter extends ArrayAdapter<AwesomeServices> {
 
     public AwesomeServicesAdapter(Context context, int resource, List<AwesomeServices> services) {
         super(context, resource, services);
-
     }
 
     @Override
@@ -25,14 +24,11 @@ public class AwesomeServicesAdapter extends ArrayAdapter<AwesomeServices> {
         TextView textView = convertView.findViewById(R.id.itemTextView);
 
         AwesomeServices service = getItem(position);
-      //  System.out.println(service.getSpecList());
 
         textView.setText(service.getService());
 
         return convertView;
 
-
     }
-
 
 }

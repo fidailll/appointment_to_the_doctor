@@ -7,18 +7,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.appointmenttothedoctor.User;
 import com.example.appointmenttothedoctor.databinding.FragmentProfileBinding;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class ProfileFragment extends Fragment {
     private FragmentProfileBinding binding;
@@ -27,24 +19,25 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        ProfileViewModel notificationsViewModel =
+        ProfileViewModel profileViewModel =
                 new ViewModelProvider(this).get(ProfileViewModel.class);
+
+//        EmailViewModel emailViewModel =
+//                new ViewModelProvider(this).get(EmailViewModel.class);
 
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.emailAddress;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        profileViewModel.getTextUser().observe(getViewLifecycleOwner(), textView::setText);
 
-//        final TextView textView1 = binding.emailVerified;
-//        notificationsViewModel.getText1().observe(getViewLifecycleOwner(), textView1::setText);
+       final TextView textView1 = binding.emailVerified;
+        profileViewModel.getTextVerified().observe(getViewLifecycleOwner(), textView1::setText);
 
-
-
+//        final ImageView image = binding.avatarImage;
+//        profileViewModel.getTextImage().observe(getViewLifecycleOwner());
         return root;
         //text.setText();
-
-
     }
 
     @Override
@@ -77,4 +70,5 @@ public class ProfileFragment extends Fragment {
 //        }
 //        // [END get_user_profile]
 //    }
+
 }

@@ -6,7 +6,7 @@
     <string name="more_vert">More vert</string>
     <string name="password_recovery">Восстановление пароля</string>
     <string name="experience">Стаж</string>
-
+    <string name="select_a_date">Выберите дату</string>
 
     <!-- Названия Activity-->
     <string name="сhat_with_a_doctor">Чат с врачом</string>

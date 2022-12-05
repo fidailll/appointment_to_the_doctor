@@ -1,7 +1,11 @@
 package com.example.appointmenttothedoctor;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -31,7 +35,11 @@ public class SpecialistPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialist_page);
 
+      String specialization = (String) getIntent().getSerializableExtra("specialization");
+       //System.out.println(specialist);
+
         specialistListView = findViewById(R.id.specialistListView);
+
         List<AwesomeSpecialist> awesomeSpecialists = new ArrayList<>();
         adapter = new AwesomeSpecialistAdapter(this, R.layout.specialist_item, awesomeSpecialists);
 
@@ -77,6 +85,16 @@ public class SpecialistPageActivity extends AppCompatActivity {
         };
 
         specialistDatabaseReference.addChildEventListener(specialistChildEventListener);
+
+        specialistListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("onClick", "Specialization");
+                Intent intent = new Intent(SpecialistPageActivity.this, DatePageActivity.class);
+                intent.putExtra("specialization", specialization);
+                intent.putExtra("specialist", adapter.getItem(position).getName());
+                startActivity(intent);
+            }
+        });
     }
 
     // это событие активирует обратную

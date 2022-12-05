@@ -8,7 +8,6 @@
     tools:context=".ui.profile.ProfileFragment"
     >
 
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -25,7 +24,6 @@
             android:layout_height="match_parent"
             android:layout_margin="20dp">
 
-
             <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/avatarImage"
                 android:layout_width="100dp"
@@ -40,15 +38,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/avatarImage"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textAlignment="textStart"/>
 
             <TextView
                 android:id="@+id/emailVerified"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:layout_toEndOf="@+id/emailAddress"
-                android:textSize="18sp" />
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@id/avatarImage"
+                android:textSize="18sp"
+                android:textAlignment="textStart"/>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
     <!--    <TextView-->
@@ -64,6 +64,5 @@
     <!--        app:layout_constraintEnd_toEndOf="parent"-->
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
 
 </LinearLayout>

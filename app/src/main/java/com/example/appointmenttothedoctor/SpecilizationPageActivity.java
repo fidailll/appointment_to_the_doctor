@@ -1,9 +1,11 @@
 package com.example.appointmenttothedoctor;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -82,6 +84,15 @@ public class SpecilizationPageActivity extends AppCompatActivity {
         };
 
         servicesDatabaseReference.addChildEventListener(servicesChildEventListener);
+
+        specilizationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("onClick", "Specialization");
+                Intent intent = new Intent(SpecilizationPageActivity.this, SpecialistPageActivity.class);
+                intent.putExtra("specialization", adapter.getItem(position).getService());
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -97,14 +108,12 @@ public class SpecilizationPageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClickServices(View view) {
-        Log.d("onClick", "Specialization");
-      //  System.out.println(specilizationListView.get);
-      //  Intent intent = new Intent(SpecilizationPageActivity.this, SpecialistPageActivity.class);
-       // intent.putExtra("specialization", servicesChildEventListener.toString());
-      //  startActivity(intent);
-    }
-
-
+//    public void onClickServices(View view) {
+//        Log.d("onClick", "Specialization");
+//        //System.out.println(adapter.getItemId());
+//        Intent intent = new Intent(SpecilizationPageActivity.this, SpecialistPageActivity.class);
+//        intent.putExtra("specialization", servicesChildEventListener.toString());
+//        startActivity(intent);
+//    }
 
 }
