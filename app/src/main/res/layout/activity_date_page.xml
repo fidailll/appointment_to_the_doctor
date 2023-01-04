@@ -4,14 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DatePageActivity">
+    tools:context=".DatePageActivity"
 
-    <ListView
-        android:id="@+id/dateListView"
-        android:divider="@android:color/transparent"
-        android:transcriptMode="alwaysScroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/date_item"
-        />
+    >
+
+<!--    <ListView-->
+<!--        android:id="@+id/dateListView"-->
+<!--        android:divider="@android:color/transparent"-->
+<!--        android:transcriptMode="alwaysScroll"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        tools:listitem="@layout/date_item"-->
+<!--        />-->
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@color/button_light_green"
+            android:onClick="onClick"
+            app:cardBackgroundColor="@color/button_light_green"
+            tools:ignore="OnClick" />
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

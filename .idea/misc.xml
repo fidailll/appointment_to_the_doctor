@@ -47,6 +47,14 @@
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/menu/sample_menu.xml" value="0.45361265498076103" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/Appointmenttothedoctor/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/activity_date_page.xml" value="0.33" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/activity_specialist_page.xml" value="0.19756838905775076" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/activity_specilization_page.xml" value="0.2875905797101449" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/fragment_profile.xml" value="0.3500905797101449" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/regs_page.xml" value="0.25" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/specialist_item.xml" value="0.2692502532928065" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/specilization_item.xml" value="0.5090579710144928" />
       </map>
     </option>
   </component>

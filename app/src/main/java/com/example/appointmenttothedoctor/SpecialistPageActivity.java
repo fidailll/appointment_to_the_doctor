@@ -35,8 +35,11 @@ public class SpecialistPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specialist_page);
 
-      String specialization = (String) getIntent().getSerializableExtra("specialization");
-       //System.out.println(specialist);
+        Bundle extras = getIntent().getExtras();
+
+
+      String specialization = extras.getString("specialization");
+      long id_spec = extras.getLong("id_spec");
 
         specialistListView = findViewById(R.id.specialistListView);
 
@@ -48,7 +51,7 @@ public class SpecialistPageActivity extends AppCompatActivity {
         setTitle(R.string.specialist);
 
         database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
-        specialistDatabaseReference = database.getReference().child("specialist").child("test");
+        specialistDatabaseReference = database.getReference().child("specialization").child(String.valueOf(id_spec)).child("specialist");
         ///вызов панели действий
         ActionBar actionBar = getSupportActionBar();
         /// показываем кнопку «Назад» на панели действий
@@ -57,7 +60,7 @@ public class SpecialistPageActivity extends AppCompatActivity {
         specialistChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                System.out.println(snapshot.child("image").toString());
+              //  System.out.println(snapshot.child("image").toString());
                 AwesomeSpecialist specialist = snapshot.getValue(AwesomeSpecialist.class);
               //  System.out.println(specialist.toString());
                 adapter.add(specialist);
@@ -88,10 +91,10 @@ public class SpecialistPageActivity extends AppCompatActivity {
 
         specialistListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("onClick", "Specialization");
+                Log.d("onClick", "Specialist");
                 Intent intent = new Intent(SpecialistPageActivity.this, DatePageActivity.class);
-                intent.putExtra("specialization", specialization);
-                intent.putExtra("specialist", adapter.getItem(position).getName());
+             //   intent.putExtra("specialization", specialization);
+               // intent.putExtra("specialist", adapter.getItem(position).getName());
                 startActivity(intent);
             }
         });

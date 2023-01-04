@@ -89,7 +89,15 @@ public class SpecilizationPageActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("onClick", "Specialization");
                 Intent intent = new Intent(SpecilizationPageActivity.this, SpecialistPageActivity.class);
-                intent.putExtra("specialization", adapter.getItem(position).getService());
+
+                String spec =  adapter.getItem(position).getService();
+                long id_spec = adapter.getItemId(position);
+
+                Log.d("spec", spec);
+                Log.d("id_spec", String.valueOf(id_spec));
+
+                intent.putExtra("specialization", spec);
+                intent.putExtra("id_spec", id_spec);
                 startActivity(intent);
             }
         });

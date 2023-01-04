@@ -2,7 +2,9 @@ package com.example.appointmenttothedoctor;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.CalendarView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -19,15 +21,26 @@ public class DatePageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_page);
-        String specialization = (String) getIntent().getSerializableExtra("specialization");
-        String specialist = (String) getIntent().getSerializableExtra("specialist");
+        //String specialization = (String) getIntent().getSerializableExtra("specialization");
+       // String specialist = (String) getIntent().getSerializableExtra("specialist");
 
-        dateListView = findViewById(R.id.dateListView);
 
-        List<AwesomeServices> awesomeServices = new ArrayList<>();
-        adapter = new AwesomeServicesAdapter(this, R.layout.specilization_item, awesomeServices);
 
-        //  adapter.add({"name" : "1 декабря"});
+        CalendarView calendarView = findViewById(R.id.calendarView);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year,
+                                            int month, int dayOfMonth) {
+                int mYear = year;
+                int mMonth = month;
+                int mDay = dayOfMonth;
+                String selectedDate = new StringBuilder().append(mMonth + 1)
+                        .append("-").append(mDay).append("-").append(mYear)
+                        .append(" ").toString();
+                Toast.makeText(getApplicationContext(), selectedDate, Toast.LENGTH_LONG).show();
+            }
+        });
 
         //надпись в AppBar
         setTitle(R.string.select_a_date);
