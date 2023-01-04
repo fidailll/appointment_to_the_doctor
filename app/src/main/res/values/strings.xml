@@ -33,7 +33,14 @@
 
     <!-- Подсказки в EditText -->
     <string name="email">Email</string>
+    <string name="phone_number">Номер телефона</string>
     <string name="password">Пароль</string>
     <string name="repeat_password">Повторите пароль</string>
     <string name="enter_yor_email">Введите свой Email</string>
+    <string name="surname">Фамилия</string>
+    <string name="name">Имя</string>
+    <string name="patronymic">Отчество</string>
+    <string name="birthday">Дата рождения</string>
+    <string name="fio">ФИО</string>
+
 </resources>
