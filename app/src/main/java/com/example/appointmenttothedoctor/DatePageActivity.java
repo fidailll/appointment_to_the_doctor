@@ -1,9 +1,13 @@
 package com.example.appointmenttothedoctor;
 
+import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -11,6 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DatePageActivity extends AppCompatActivity {
@@ -24,23 +29,33 @@ public class DatePageActivity extends AppCompatActivity {
         //String specialization = (String) getIntent().getSerializableExtra("specialization");
        // String specialist = (String) getIntent().getSerializableExtra("specialist");
 
+       //Текущее время
+        Calendar today = Calendar.getInstance();
+        Calendar maxDate = Calendar.getInstance();
+
+        maxDate.set(Calendar.YEAR, Calendar.YEAR+2);
+
+        DatePicker datePicker = this.findViewById(R.id.datePicker);
+        // До сегодняшнего дня
+        datePicker.setMinDate(today.getTimeInMillis());
+       // datePicker.setMaxDate(maxDate.getTimeInMillis());
 
 
-        CalendarView calendarView = findViewById(R.id.calendarView);
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
+        datePicker.init(today.get(Calendar.YEAR), today.get(Calendar.MONTH),
+                today.get(Calendar.DAY_OF_MONTH), new DatePicker.OnDateChangedListener() {
             @Override
-            public void onSelectedDayChange(CalendarView view, int year,
-                                            int month, int dayOfMonth) {
-                int mYear = year;
-                int mMonth = month;
-                int mDay = dayOfMonth;
-                String selectedDate = new StringBuilder().append(mMonth + 1)
-                        .append("-").append(mDay).append("-").append(mYear)
-                        .append(" ").toString();
-                Toast.makeText(getApplicationContext(), selectedDate, Toast.LENGTH_LONG).show();
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+
+                // Отсчет месяцев начинается с нуля. Для отображения добавляем 1.
+              Log.d("onClick", "Дата: " + view.getDayOfMonth() + "/" +
+                      (view.getMonth() + 1) + "/" + view.getYear()) ;
+
+                // альтернативная запись
+                // dateTextView.setText("Дата: " + dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
             }
         });
+
 
         //надпись в AppBar
         setTitle(R.string.select_a_date);
