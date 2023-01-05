@@ -1,6 +1,9 @@
 package com.example.appointmenttothedoctor;
 
+import android.app.Application;
+
 import java.util.Date;
+import java.util.List;
 
 public class User {
 
@@ -11,12 +14,13 @@ public class User {
     private String phone;
     private Date birthday;
     private String id;
+    private List<App> app;
 
     public User(){
 
     }
 
-    public User(String surname, String name, String patronymic, String email, String phone, Date birthday, String id){
+    public User(String surname, String name, String patronymic, String email, String phone, Date birthday, String id, List<App> app){
         this.surname = surname;
         this.name = name;
         this.patronymic = patronymic;
@@ -24,6 +28,7 @@ public class User {
         this.phone = phone;
         this.birthday = birthday;
         this.id = id;
+        this.app = app;
 
     }
     public String getSurname(){

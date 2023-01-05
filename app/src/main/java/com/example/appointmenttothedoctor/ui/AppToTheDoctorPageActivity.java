@@ -4,14 +4,27 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.text.format.DateUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.example.appointmenttothedoctor.R;
+import com.example.appointmenttothedoctor.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AppToTheDoctorPageActivity extends AppCompatActivity {
 
@@ -35,6 +48,10 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
     //TextView Дата приема
     TextView textView4;
 
+    Calendar dateAndTime = Calendar.getInstance();
+    DatePickerDialog datePickerDialog;
+    TimePickerDialog timePickerDialog;
+    private FirebaseAuth mAuth;
 
     String specialization;
     String specialist;
@@ -42,6 +59,10 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
     long servicePrice;
     long id_spec;
     long id_specialist;
+
+    /// Подключение к Storage в firebase
+    FirebaseDatabase database;
+    DatabaseReference usersDatabaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +99,6 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         /// показываем кнопку «Назад» на панели действий
         actionBar.setDisplayHomeAsUpEnabled(true);
-
     }
 
 
@@ -124,7 +144,8 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         editText4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Click EditText4");
+                setTime(v);
+
             }
         });
     }
@@ -193,5 +214,70 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
             }
         }
     }
+
+
+
+    // установка начальных даты и времени
+    private void setInitialDateTime() {
+        editText4.setText(DateUtils.formatDateTime(this,
+                dateAndTime.getTimeInMillis(),
+                DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR | DateUtils.FORMAT_SHOW_TIME
+                       ));
+    }
+
+    // отображаем диалоговое окно для выбора даты
+    public void setDate(View v) {
+      datePickerDialog =  new DatePickerDialog(AppToTheDoctorPageActivity.this, d,
+                dateAndTime.get(Calendar.YEAR),
+                dateAndTime.get(Calendar.MONTH),
+                dateAndTime.get(Calendar.DAY_OF_MONTH));
+        datePickerDialog.getDatePicker().setMinDate(dateAndTime.getTimeInMillis());
+        datePickerDialog.show();
+        // setInitialDateTime();
+
+    }
+//
+    // отображаем диалоговое окно для выбора времени
+    public void setTime(View v) {
+        timePickerDialog = new TimePickerDialog(AppToTheDoctorPageActivity.this, t,
+                dateAndTime.get(Calendar.HOUR_OF_DAY),
+                dateAndTime.get(Calendar.MINUTE), true);
+
+        timePickerDialog.show();
+        setDate(v);
+
+    }
+
+    // установка обработчика выбора времени
+    TimePickerDialog.OnTimeSetListener t=new TimePickerDialog.OnTimeSetListener() {
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
+            dateAndTime.set(Calendar.MINUTE, minute);
+            setInitialDateTime();
+        }
+    };
+
+    // установка обработчика выбора даты
+    DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener() {
+        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+            dateAndTime.set(Calendar.YEAR, year);
+            dateAndTime.set(Calendar.MONTH, monthOfYear);
+            dateAndTime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            setInitialDateTime();
+        }
+    };
+
+    private void createApp() {
+
+        final FirebaseUser user = mAuth.getCurrentUser();
+        User profile
+
+        // user.set
+    }
+
+//
+//    DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener() {
+//        public void
+//    }
 }
 

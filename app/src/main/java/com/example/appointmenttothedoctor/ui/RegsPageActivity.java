@@ -149,7 +149,6 @@ public class RegsPageActivity extends AppCompatActivity {
                             sendEmailVerification();
                             Log.d("onClick", "Enter");
                             Intent intent = new Intent(RegsPageActivity.this, MenuPageActivity.class);
-
                             startActivity(intent);
                             finish();
                         } else {
