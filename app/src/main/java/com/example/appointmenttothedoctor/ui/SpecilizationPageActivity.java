@@ -1,4 +1,4 @@
-package com.example.appointmenttothedoctor;
+package com.example.appointmenttothedoctor.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appointmenttothedoctor.AwesomeServices;
+import com.example.appointmenttothedoctor.AwesomeServicesAdapter;
+import com.example.appointmenttothedoctor.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -88,7 +91,7 @@ public class SpecilizationPageActivity extends AppCompatActivity {
         specilizationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("onClick", "Specialization");
-                Intent intent = new Intent(SpecilizationPageActivity.this, SpecialistPageActivity.class);
+                Intent intent = new Intent();
 
                 String spec =  adapter.getItem(position).getService();
                 long id_spec = adapter.getItemId(position);
@@ -98,7 +101,8 @@ public class SpecilizationPageActivity extends AppCompatActivity {
 
                 intent.putExtra("specialization", spec);
                 intent.putExtra("id_spec", id_spec);
-                startActivity(intent);
+                setResult(AppToTheDoctorPageActivity.RESULT_OK, intent);
+                finish();
             }
         });
     }

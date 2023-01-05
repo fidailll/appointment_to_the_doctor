@@ -1,4 +1,4 @@
-package com.example.appointmenttothedoctor;
+package com.example.appointmenttothedoctor.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toolbar;
+
+import com.example.appointmenttothedoctor.R;
 
 public class СhatPageActivity extends AppCompatActivity {
 

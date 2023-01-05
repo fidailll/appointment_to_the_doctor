@@ -1,4 +1,4 @@
-package com.example.appointmenttothedoctor;
+package com.example.appointmenttothedoctor.ui;
 
 
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appointmenttothedoctor.R;
+import com.example.appointmenttothedoctor.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -45,7 +47,6 @@ public class RegsPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.regs_page);
-
 
 
                 nameEditText = findViewById(R.id.nameEditText);

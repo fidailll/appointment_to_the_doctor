@@ -1,4 +1,4 @@
-package com.example.appointmenttothedoctor;
+package com.example.appointmenttothedoctor.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.appointmenttothedoctor.AwesomeSpecialist;
+import com.example.appointmenttothedoctor.AwesomeSpecialistAdapter;
+import com.example.appointmenttothedoctor.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,7 +41,7 @@ public class SpecialistPageActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
 
-      String specialization = extras.getString("specialization");
+     // String specialization = extras.getString("specialization");
       long id_spec = extras.getLong("id_spec");
 
         specialistListView = findViewById(R.id.specialistListView);
@@ -92,10 +95,13 @@ public class SpecialistPageActivity extends AppCompatActivity {
         specialistListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("onClick", "Specialist");
-                Intent intent = new Intent(SpecialistPageActivity.this, DatePageActivity.class);
-             //   intent.putExtra("specialization", specialization);
-               // intent.putExtra("specialist", adapter.getItem(position).getName());
-                startActivity(intent);
+               // Intent intent = new Intent(SpecialistPageActivity.this, DatePageActivity.class);
+                Intent intent = new Intent();
+               // intent.putExtra("specialization", specialization);
+                intent.putExtra("specialist", adapter.getItem(position).getName());
+                setResult(AppToTheDoctorPageActivity.RESULT_OK, intent);
+                finish();
+//                startActivity(intent);
             }
         });
     }

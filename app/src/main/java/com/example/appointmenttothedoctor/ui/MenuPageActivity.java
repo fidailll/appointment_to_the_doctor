@@ -1,4 +1,4 @@
-package com.example.appointmenttothedoctor;
+package com.example.appointmenttothedoctor.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.appointmenttothedoctor.R;
+import com.example.appointmenttothedoctor.User;
 import com.example.appointmenttothedoctor.databinding.ActivityMenuPageBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -117,14 +119,14 @@ public class MenuPageActivity extends AppCompatActivity {
     }
 
     public void onClickBtAppToTheDoctor(View view) {
-        Log.d("onClick", "Regs");
-        Intent intent = new Intent(MenuPageActivity.this, SpecilizationPageActivity.class);
+        Log.d("onClick", "AppToTheDoctorPageActivity");
+        Intent intent = new Intent(MenuPageActivity.this, AppToTheDoctorPageActivity.class);
         startActivity(intent);
     }
 
 
     public void onClickBtChatWithADoctor(View view) {
-        Log.d("onClick", "Regs");
+        Log.d("onClick", "СhatPageActivity");
         Intent intent = new Intent(MenuPageActivity.this, СhatPageActivity.class);
         startActivity(intent);
     }

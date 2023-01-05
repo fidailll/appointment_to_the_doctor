@@ -43,4 +43,9 @@
     <string name="birthday">Дата рождения</string>
     <string name="fio">ФИО</string>
 
+    <!-- Надписи в TextView -->
+    <string name="choose_a_specialization">Выберите специализацию</string>
+    <string name="choose_a_specialist">Выберите специалиста</string>
+    <string name="date_of_receipt">Дата приема</string>
+
 </resources>
