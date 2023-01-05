@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class AwesomeServicesAdapter extends ArrayAdapter<AwesomeServices> {
+public class AwesomeSpecializationAdapter extends ArrayAdapter<AwesomeSpecialization> {
 
-    public AwesomeServicesAdapter(Context context, int resource, List<AwesomeServices> services) {
+    public AwesomeSpecializationAdapter(Context context, int resource, List<AwesomeSpecialization> services) {
         super(context, resource, services);
     }
 
@@ -23,9 +23,9 @@ public class AwesomeServicesAdapter extends ArrayAdapter<AwesomeServices> {
 
         TextView textView = convertView.findViewById(R.id.itemTextView);
 
-        AwesomeServices service = getItem(position);
+        AwesomeSpecialization specialization = getItem(position);
 
-        textView.setText(service.getService());
+        textView.setText(specialization.getService());
 
         return convertView;
 

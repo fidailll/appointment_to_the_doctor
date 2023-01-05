@@ -2,28 +2,19 @@ package com.example.appointmenttothedoctor.ui;
 
 import android.icu.util.Calendar;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.CalendarView;
-import android.widget.DatePicker;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.appointmenttothedoctor.AwesomeServicesAdapter;
+import com.example.appointmenttothedoctor.AwesomeSpecializationAdapter;
 import com.example.appointmenttothedoctor.R;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 public class DatePageActivity extends AppCompatActivity {
     private ListView dateListView;
-    private AwesomeServicesAdapter adapter;
+    private AwesomeSpecializationAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

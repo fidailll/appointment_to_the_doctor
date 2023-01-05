@@ -98,7 +98,12 @@ public class SpecialistPageActivity extends AppCompatActivity {
                // Intent intent = new Intent(SpecialistPageActivity.this, DatePageActivity.class);
                 Intent intent = new Intent();
                // intent.putExtra("specialization", specialization);
-                intent.putExtra("specialist", adapter.getItem(position).getName());
+
+                String specialist =  adapter.getItem(position).getName();
+                long id_specialist = adapter.getItemId(position);
+
+                intent.putExtra("specialist", specialist);
+                intent.putExtra("id_specialist", id_specialist);
                 setResult(AppToTheDoctorPageActivity.RESULT_OK, intent);
                 finish();
 //                startActivity(intent);

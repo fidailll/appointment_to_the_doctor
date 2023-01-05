@@ -1,13 +1,13 @@
 package com.example.appointmenttothedoctor;
 
-public class AwesomeServices {
+public class AwesomeSpecialization {
     String service;
 
 
-    public AwesomeServices(){}
+    public AwesomeSpecialization(){}
 
-   public AwesomeServices(String service){
-       this.service = service;
+   public AwesomeSpecialization(String specialization){
+       this.service = specialization;
    }
 
    public void setService(String service) {

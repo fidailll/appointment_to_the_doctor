@@ -1,5 +1,10 @@
 package com.example.appointmenttothedoctor.ui;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,13 +13,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.appointmenttothedoctor.AwesomeSpecialization;
-import com.example.appointmenttothedoctor.AwesomeSpecializationAdapter;
+import com.example.appointmenttothedoctor.AwesomeService;
+import com.example.appointmenttothedoctor.AwesomeServiceAdapter;
+import com.example.appointmenttothedoctor.AwesomeSpecialist;
 import com.example.appointmenttothedoctor.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -25,44 +26,46 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpecilizationPageActivity extends AppCompatActivity {
-    private ListView specilizationListView;
-    private AwesomeSpecializationAdapter adapter;
+public class ServicePageActivity extends AppCompatActivity {
+    private ListView serviceListView;
+    private AwesomeServiceAdapter adapter;
 
     FirebaseDatabase database;
-    DatabaseReference servicesDatabaseReference;
-    ChildEventListener servicesChildEventListener;
-
+    DatabaseReference serviceDatabaseReference;
+    ChildEventListener serviceChildEventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_specilization_page);
+        setContentView(R.layout.activity_service_page);
 
-        specilizationListView = findViewById(R.id.specilizationListView);
-        List<AwesomeSpecialization> awesomeServices = new ArrayList<>();
-        adapter = new AwesomeSpecializationAdapter(this, R.layout.specilization_item, awesomeServices);
+        Bundle extras = getIntent().getExtras();
 
-        specilizationListView.setAdapter(adapter);
+        long id_specialist = extras.getLong("id_specialist");
+        long id_spec = extras.getLong("id_spec");
 
+        serviceListView = findViewById(R.id.serviceListView);
+
+        List<AwesomeService> awesomeServices = new ArrayList<>();
+        adapter = new AwesomeServiceAdapter(this, R.layout.service_item, awesomeServices);
+
+        serviceListView.setAdapter(adapter);
         //надпись в AppBar
-        setTitle(R.string.specialization);
-
+        setTitle(R.string.specialist);
         database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
-        servicesDatabaseReference = database.getReference().child("specialization");
+        serviceDatabaseReference = database.getReference().child("specialization").child(String.valueOf(id_spec)).child("specialist").child(String.valueOf(id_specialist)).child("service");
 
         ///вызов панели действий
         ActionBar actionBar = getSupportActionBar();
         /// показываем кнопку «Назад» на панели действий
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        servicesChildEventListener = new ChildEventListener() {
+        serviceChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                 AwesomeSpecialization service = snapshot.getValue(AwesomeSpecialization.class);
-                //service.getService();
-               // System.out.println(snapshot.child("specialist").toString());
-                 adapter.add(service);
-
+                //  System.out.println(snapshot.child("image").toString());
+                AwesomeService service = snapshot.getValue(AwesomeService.class);
+                //  System.out.println(specialist.toString());
+                adapter.add(service);
             }
 
             @Override
@@ -86,27 +89,21 @@ public class SpecilizationPageActivity extends AppCompatActivity {
             }
         };
 
-        servicesDatabaseReference.addChildEventListener(servicesChildEventListener);
+        serviceDatabaseReference.addChildEventListener(serviceChildEventListener);
 
-        specilizationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        serviceListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("onClick", "Specialization");
+                Log.d("onClick", "Service");
+                // Intent intent = new Intent(SpecialistPageActivity.this, DatePageActivity.class);
                 Intent intent = new Intent();
-
-                String spec =  adapter.getItem(position).getService();
-                long id_spec = adapter.getItemId(position);
-
-                Log.d("spec", spec);
-                Log.d("id_spec", String.valueOf(id_spec));
-
-                intent.putExtra("specialization", spec);
-                intent.putExtra("id_spec", id_spec);
+                // intent.putExtra("specialization", specialization);
+                intent.putExtra("service", adapter.getItem(position).getName());
                 setResult(AppToTheDoctorPageActivity.RESULT_OK, intent);
                 finish();
+//                startActivity(intent);
             }
         });
     }
-
 
     // это событие активирует обратную
     // функция для кнопки при нажатии
@@ -119,13 +116,4 @@ public class SpecilizationPageActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-//    public void onClickServices(View view) {
-//        Log.d("onClick", "Specialization");
-//        //System.out.println(adapter.getItemId());
-//        Intent intent = new Intent(SpecilizationPageActivity.this, SpecialistPageActivity.class);
-//        intent.putExtra("specialization", servicesChildEventListener.toString());
-//        startActivity(intent);
-//    }
-
 }

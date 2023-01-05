@@ -38,7 +38,10 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
 
     String specialization;
     String specialist;
+    String serviceName;
+    long servicePrice;
     long id_spec;
+    long id_specialist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +113,9 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         editText3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("Click EditText3");
+                Intent intent = new Intent(AppToTheDoctorPageActivity.this, ServicePageActivity.class);
+                intent.putExtra("id_spec", id_spec);
+                startActivityForResult(intent, STATIC_INTEGER_VALUE);
             }
         });
     }
@@ -147,6 +152,8 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
                     specialization = data.getExtras().getString("specialization");
                     id_spec = data.getExtras().getLong("id_spec");
                     specialist = data.getExtras().getString("specialist");
+                    id_specialist = data.getExtras().getLong("id_specialist");
+                    serviceName = data.getExtras().getString("service");
                     if (specialization != null) {
                         editText1.setText(specialization);
                         textView2.setVisibility(View.VISIBLE);
@@ -154,7 +161,9 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
 
 
                         specialist = null;
+                        serviceName = null;
                         editText2.setText(null);
+                        editText3.setText(null);
                         textView3.setVisibility(View.INVISIBLE);
                         editText3.setVisibility(View.INVISIBLE);
                         textView4.setVisibility(View.INVISIBLE);
@@ -163,10 +172,20 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
 
                     if (specialist != null) {
                         editText2.setText(specialist);
+
+                        serviceName = null;
+                        editText3.setText(null);
                         textView3.setVisibility(View.VISIBLE);
                         editText3.setVisibility(View.VISIBLE);
                         textView4.setVisibility(View.INVISIBLE);
                         editText4.setVisibility(View.INVISIBLE);
+                    }
+
+                    if (serviceName != null) {
+                        editText3.setText(serviceName);
+
+                        textView4.setVisibility(View.VISIBLE);
+                        editText4.setVisibility(View.VISIBLE);
                     }
                 }
 
