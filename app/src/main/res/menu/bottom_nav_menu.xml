@@ -11,6 +11,10 @@
 <!--        android:title="@string/title_history"/>-->
 
     <item
+        android:id="@+id/navigation_clinic"
+        android:icon="@drawable/outline_domain_24"
+        android:title="@string/title_clinic" />
+    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/outline_person_24"
         android:title="@string/title_profile" />

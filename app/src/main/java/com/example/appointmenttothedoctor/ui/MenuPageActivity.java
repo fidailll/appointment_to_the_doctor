@@ -1,5 +1,7 @@
 package com.example.appointmenttothedoctor.ui;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,25 +9,23 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.appointmenttothedoctor.EditProfilePageActivity;
+import com.example.appointmenttothedoctor.MyDialogFragment;
 import com.example.appointmenttothedoctor.R;
-import com.example.appointmenttothedoctor.User;
 import com.example.appointmenttothedoctor.databinding.ActivityMenuPageBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -51,7 +51,8 @@ public class MenuPageActivity extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home,
                // R.id.navigation_history,
-                R.id.navigation_profile)
+                R.id.navigation_profile,
+                R.id.navigation_clinic)
                 .build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_menu_page);
@@ -117,14 +118,25 @@ public class MenuPageActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.call:  {
-                onClickCall();
+             //  onClickCall();
+                onCreateDialog();
+                System.out.println("sadhfhgsdafhds");
                 return true;
             }
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
+
+    public void onCreateDialog() {
+        FragmentManager manager = getSupportFragmentManager();
+        MyDialogFragment myDialogFragment = new MyDialogFragment();
+
+        FragmentTransaction transaction = manager.beginTransaction();
+        myDialogFragment.show(transaction, "dialog");
+    }
+
+
 
     private void onClickSignOut(){
         FirebaseAuth.getInstance().signOut();

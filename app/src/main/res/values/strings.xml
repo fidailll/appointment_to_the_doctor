@@ -25,6 +25,7 @@
     <string name="title_home">Домой</string>
     <string name="title_history">История заявок</string>
     <string name="title_profile">Профиль</string>
+    <string name="title_clinic">Клиника</string>
     <string name="settings">Настройки</string>
     <string name="sign_out">Выйти из профиля</string>
     <string name="back">Назад</string>
@@ -36,7 +37,6 @@
     <string name="edit_profile">Редактировать профиль</string>
     <string name="resend">Отправить повторно</string>
     <string name="call">Позвонить</string>
-
 
 
 

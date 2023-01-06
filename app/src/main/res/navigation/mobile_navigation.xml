@@ -18,6 +18,12 @@
         tools:layout="@layout/fragment_history" />
 
     <fragment
+        android:id="@+id/navigation_clinic"
+        android:name="com.example.appointmenttothedoctor.ui.clinic.ClinicFragment"
+        android:label="@string/title_clinic"
+        tools:layout="@layout/fragment_clinic" />
+
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.appointmenttothedoctor.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
