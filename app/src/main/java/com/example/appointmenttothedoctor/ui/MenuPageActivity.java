@@ -1,6 +1,7 @@
 package com.example.appointmenttothedoctor.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -9,6 +10,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -55,6 +57,11 @@ public class MenuPageActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_menu_page);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        ///вызов панели действий
+        ActionBar actionBar = getSupportActionBar();
+
+
 
 //        database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
 //        usersDatabaseReference = database.getReference().child("users");
@@ -109,6 +116,10 @@ public class MenuPageActivity extends AppCompatActivity {
                 onClickEditProfile();
                 return true;
             }
+            case R.id.call:  {
+                onClickCall();
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -124,11 +135,9 @@ public class MenuPageActivity extends AppCompatActivity {
     }
 
     private void onClickEditProfile(){
-        FirebaseAuth.getInstance().signOut();
         Log.d("onClick", "Edit Profile");
         Intent intent = new Intent(MenuPageActivity.this, EditProfilePageActivity.class);
         startActivity(intent);
-
     }
 
     public void onClickBtAppToTheDoctor(View view) {
@@ -141,5 +150,13 @@ public class MenuPageActivity extends AppCompatActivity {
         Log.d("onClick", "СhatPageActivity");
         Intent intent = new Intent(MenuPageActivity.this, СhatPageActivity.class);
         startActivity(intent);
+    }
+
+    private void onClickCall(){
+        Log.d("onClick", "Call");
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:89174152916"));
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 }

@@ -35,6 +35,8 @@
     <string name="sign_up">Записаться</string>
     <string name="edit_profile">Редактировать профиль</string>
     <string name="resend">Отправить повторно</string>
+    <string name="call">Позвонить</string>
+
 
 
 
@@ -54,5 +56,7 @@
     <string name="choose_a_specialization">Выберите специализацию</string>
     <string name="choose_a_specialist">Выберите специалиста</string>
     <string name="date_of_receipt">Дата приема</string>
+    <string name="user">Пользователь:</string>
+    <string name="mail">Почта:</string>
 
 </resources>

@@ -72,8 +72,8 @@ public class ProfileViewModel extends ViewModel {
                     String userEmail = userProfile.getEmail();
                     System.out.println(userName);
                     System.out.println(userEmail);
-                    user.setValue("Пользователь\n " + userName);
-                    email.setValue("Почта\n " + userEmail);
+                    user.setValue(userName);
+                    email.setValue(userEmail);
                     image.setValue("https://firebasestorage.googleapis.com/v0/b/appointment-to-the-docto-129cb.appspot.com/o/image%2Ff43e2f75e992c8a479785ef7adb6dc41.jpg?alt=media&token=7011987b-03ed-4cea-973f-023b6f3a73dc");
                 }
             }

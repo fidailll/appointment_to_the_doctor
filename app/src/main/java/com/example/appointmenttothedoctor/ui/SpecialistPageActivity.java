@@ -55,6 +55,7 @@ public class SpecialistPageActivity extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
         specialistDatabaseReference = database.getReference().child("specialization").child(String.valueOf(id_spec)).child("specialist");
+
         ///вызов панели действий
         ActionBar actionBar = getSupportActionBar();
         /// показываем кнопку «Назад» на панели действий
