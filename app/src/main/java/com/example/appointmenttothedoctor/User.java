@@ -1,7 +1,5 @@
 package com.example.appointmenttothedoctor;
 
-import android.app.Application;
-
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +29,14 @@ public class User {
         this.app = app;
 
     }
+    public List<App> getListApp(){
+        return app;
+    }
+
+    public void  setListApp(List<App> app) {
+         this.app = app;
+    }
+
     public String getSurname(){
         return surname;
     }

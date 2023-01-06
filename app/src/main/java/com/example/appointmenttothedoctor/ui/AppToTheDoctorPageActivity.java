@@ -7,16 +7,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.text.format.DateUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.appointmenttothedoctor.App;
 import com.example.appointmenttothedoctor.R;
 import com.example.appointmenttothedoctor.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +28,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AppToTheDoctorPageActivity extends AppCompatActivity {
 
@@ -48,7 +54,10 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
     //TextView Дата приема
     TextView textView4;
 
+    Button button1;
+
     Calendar dateAndTime = Calendar.getInstance();
+    Calendar calendar;
     DatePickerDialog datePickerDialog;
     TimePickerDialog timePickerDialog;
     private FirebaseAuth mAuth;
@@ -69,6 +78,8 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_to_the_doctor_page);
 
+        button1 = findViewById(R.id.button1);
+
         editText1 = findViewById(R.id.editText1);
         editText2 = findViewById(R.id.editText2);
         editText3 = findViewById(R.id.editText3);
@@ -87,13 +98,16 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         textView4.setVisibility(View.INVISIBLE);
         editText4.setVisibility(View.INVISIBLE);
 
+        button1.setVisibility(View.INVISIBLE);
+
         editTextClick1();
         editTextClick2();
         editTextClick3();
         editTextClick4();
 
+
         //надпись в AppBar
-        setTitle(R.string.select_a_date);
+        setTitle(R.string.app_name);
 
         ///вызов панели действий
         ActionBar actionBar = getSupportActionBar();
@@ -102,7 +116,7 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
     }
 
 
-
+// метод который открывает SpecilizationPageActivity
     private void editTextClick1(){
         editText1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +130,7 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         });
     }
 
+    // метод который открывает SpecialistPageActivity
     private void editTextClick2(){
         editText2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +144,7 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         });
     }
 
+    // метод который открывает ServicePageActivity
     private void editTextClick3(){
         editText3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,12 +156,12 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         });
     }
 
+    // метод который Открывает расписание
     private void editTextClick4(){
         editText4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setTime(v);
-
             }
         });
     }
@@ -162,7 +178,7 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+// метод который получает с других Activity значения
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -185,10 +201,12 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
                         serviceName = null;
                         editText2.setText(null);
                         editText3.setText(null);
+                        editText4.setText(null);
                         textView3.setVisibility(View.INVISIBLE);
                         editText3.setVisibility(View.INVISIBLE);
                         textView4.setVisibility(View.INVISIBLE);
                         editText4.setVisibility(View.INVISIBLE);
+                        button1.setVisibility(View.INVISIBLE);
                     }
 
                     if (specialist != null) {
@@ -196,25 +214,36 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
 
                         serviceName = null;
                         editText3.setText(null);
+                        editText4.setText(null);
                         textView3.setVisibility(View.VISIBLE);
                         editText3.setVisibility(View.VISIBLE);
                         textView4.setVisibility(View.INVISIBLE);
                         editText4.setVisibility(View.INVISIBLE);
+                        button1.setVisibility(View.INVISIBLE);
                     }
 
                     if (serviceName != null) {
                         editText3.setText(serviceName);
 
+                        editText4.setText(null);
                         textView4.setVisibility(View.VISIBLE);
                         editText4.setVisibility(View.VISIBLE);
+                        button1.setVisibility(View.INVISIBLE);
                     }
                 }
 
+                button1.setOnClickListener(
+                        new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                createApp();
+                            }
+                        }
+                );
                 break;
             }
         }
     }
-
 
 
     // установка начальных даты и времени
@@ -223,6 +252,7 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
                 dateAndTime.getTimeInMillis(),
                 DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_SHOW_YEAR | DateUtils.FORMAT_SHOW_TIME
                        ));
+        button1.setVisibility(View.VISIBLE);
     }
 
     // отображаем диалоговое окно для выбора даты
@@ -249,7 +279,7 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
     }
 
     // установка обработчика выбора времени
-    TimePickerDialog.OnTimeSetListener t=new TimePickerDialog.OnTimeSetListener() {
+    TimePickerDialog.OnTimeSetListener t = new TimePickerDialog.OnTimeSetListener() {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             dateAndTime.set(Calendar.HOUR_OF_DAY, hourOfDay);
             dateAndTime.set(Calendar.MINUTE, minute);
@@ -267,12 +297,19 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         }
     };
 
+
+
     private void createApp() {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser user = auth.getCurrentUser();
+        //User user = new User();
+        App app = new App(specialization, specialist, serviceName, editText4.getText().toString());
+        List<App> listApp = new ArrayList<App>();
+        listApp.add(app);
+        database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
+        usersDatabaseReference = database.getReference().child("users").child(user.getUid());
 
-        final FirebaseUser user = mAuth.getCurrentUser();
-        User profile
-
-        // user.set
+        usersDatabaseReference.setValue(listApp);
     }
 
 //

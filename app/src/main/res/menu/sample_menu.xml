@@ -11,18 +11,17 @@
 <!--        android:icon="@drawable/ic_done"-->
 <!--        android:title="@string/done"-->
 <!--        app:showAsAction="ifRoom|withText"/>-->
-
+        <item
+            android:id="@+id/edit"
+            android:icon="@drawable/outline_more_vert_24"
+            android:title="@string/edit_profile"
+            />
         <item
             android:id="@+id/more_vert"
             android:icon="@drawable/outline_more_vert_24"
             android:title="@string/sign_out"
-
             />
-<!--        <item-->
-<!--            android:id="@+id/more_vert"-->
-<!--            android:icon="@drawable/outline_more_vert_24"-->
-<!--            android:title="@string/more_vert"-->
-<!--            />-->
+
 <!--        <item-->
 <!--            android:id="@+id/more_vert"-->
 <!--            android:icon="@drawable/outline_more_vert_24"-->

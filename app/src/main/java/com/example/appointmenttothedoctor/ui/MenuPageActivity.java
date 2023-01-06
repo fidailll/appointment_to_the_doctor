@@ -15,6 +15,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.example.appointmenttothedoctor.EditProfilePageActivity;
 import com.example.appointmenttothedoctor.R;
 import com.example.appointmenttothedoctor.User;
 import com.example.appointmenttothedoctor.databinding.ActivityMenuPageBinding;
@@ -55,40 +56,40 @@ public class MenuPageActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
-        usersDatabaseReference = database.getReference().child("users");
-
-
-        /// Выгрузка профиля
-        usersChildEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                User user = snapshot.getValue(User.class);
-                if (user.getId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
-                    String userName = user.getName();
-                    String userEmail = user.getEmail();
-                    System.out.println(userName);
-                }
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        };
-
-        usersDatabaseReference.addChildEventListener(usersChildEventListener);
+//        database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
+//        usersDatabaseReference = database.getReference().child("users");
+//
+//
+//        /// Выгрузка профиля
+//        usersChildEventListener = new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//                User user = snapshot.getValue(User.class);
+//                if (user.getId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+//                    String userName = user.getName();
+//                    String userEmail = user.getEmail();
+//                    System.out.println(userName);
+//                }
+//            }
+//
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//            }
+//        };
+//
+//        usersDatabaseReference.addChildEventListener(usersChildEventListener);
     }
 
     @Override
@@ -102,6 +103,10 @@ public class MenuPageActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.more_vert:  {
                 onClickSignOut();
+                return true;
+            }
+            case R.id.edit:  {
+                onClickEditProfile();
                 return true;
             }
             default:
@@ -118,12 +123,19 @@ public class MenuPageActivity extends AppCompatActivity {
         finish();
     }
 
+    private void onClickEditProfile(){
+        FirebaseAuth.getInstance().signOut();
+        Log.d("onClick", "Edit Profile");
+        Intent intent = new Intent(MenuPageActivity.this, EditProfilePageActivity.class);
+        startActivity(intent);
+
+    }
+
     public void onClickBtAppToTheDoctor(View view) {
         Log.d("onClick", "AppToTheDoctorPageActivity");
         Intent intent = new Intent(MenuPageActivity.this, AppToTheDoctorPageActivity.class);
         startActivity(intent);
     }
-
 
     public void onClickBtChatWithADoctor(View view) {
         Log.d("onClick", "СhatPageActivity");

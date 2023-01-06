@@ -50,7 +50,7 @@ public class ServicePageActivity extends AppCompatActivity {
 
         serviceListView.setAdapter(adapter);
         //надпись в AppBar
-        setTitle(R.string.specialist);
+        setTitle(R.string.services);
         database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
         serviceDatabaseReference = database.getReference().child("specialization").child(String.valueOf(id_spec)).child("specialist").child(String.valueOf(id_specialist)).child("service");
 

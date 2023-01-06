@@ -8,12 +8,14 @@
     <string name="experience">Стаж</string>
     <string name="select_a_date">Выберите дату</string>
 
+
     <!-- Названия Activity-->
     <string name="сhat_with_a_doctor">Чат с врачом</string>
     <string name="specialization">Специализация</string>
     <string name="service">Услуга</string>
     <string name="specialist">Специалисты</string>
     <string name="free_time">Свободное время</string>
+    <string name="services">Услуги</string>
 
 
     <!-- Названия Button-->
@@ -27,9 +29,14 @@
     <string name="sign_out">Выйти из профиля</string>
     <string name="back">Назад</string>
     <string name="enter">Войти</string>
-    <string name="send">Отпраавить</string>
+    <string name="send">Отправить</string>
     <string name="forgot_your_password">Забыли пароль?</string>
     <string name="reestablish">Востановить</string>
+    <string name="sign_up">Записаться</string>
+    <string name="edit_profile">Редактировать профиль</string>
+    <string name="resend">Отправить повторно</string>
+
+
 
     <!-- Подсказки в EditText -->
     <string name="email">Email</string>

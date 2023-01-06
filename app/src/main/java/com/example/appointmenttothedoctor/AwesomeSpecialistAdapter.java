@@ -36,7 +36,6 @@ public class AwesomeSpecialistAdapter extends ArrayAdapter<AwesomeSpecialist> {
 
         if(isImage){
             //Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/appointment-to-the-docto-129cb.appspot.com/o/image%2F8lsxM560HcQ.jpg?alt=media&token=3fb17c66-d548-47e5-8d55-f6bce381fad8").into(imageView);
-
         } else {
             Picasso.get().load(specialist.getImage()).into(imageView);
         }

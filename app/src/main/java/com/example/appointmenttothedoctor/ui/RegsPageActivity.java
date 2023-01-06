@@ -186,7 +186,8 @@ public class RegsPageActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        // Email sent
+                        Toast.makeText(RegsPageActivity.this, "Письмо подтверждения отправлена на почтовый ящик!",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
         // [END send_email_verification]
