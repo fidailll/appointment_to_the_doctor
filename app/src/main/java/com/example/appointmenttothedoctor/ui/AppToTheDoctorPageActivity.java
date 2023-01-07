@@ -12,6 +12,7 @@ import android.content.pm.ActivityInfo;
 import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -19,12 +20,16 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.appointmenttothedoctor.App;
 import com.example.appointmenttothedoctor.R;
 import com.example.appointmenttothedoctor.User;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -32,14 +37,17 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AppToTheDoctorPageActivity extends AppCompatActivity {
 
     private static final int STATIC_INTEGER_VALUE = 0;
     private static final Object INVISIBLE = 0;
+    private static final String TAG = "Firebase";
     //EditText Специлизация
     EditText editText1;
     //EditText Специалист
@@ -69,6 +77,8 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
     String specialization;
     String specialist;
     String serviceName;
+    String patientName;
+    String id;
     long servicePrice;
     long id_spec;
     long id_specialist;
@@ -81,6 +91,11 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_to_the_doctor_page);
+        Bundle extras = getIntent().getExtras();
+
+        patientName = extras.getString("patient_name");
+        id = extras.getString("id");
+
 
         button1 = findViewById(R.id.button1);
 
@@ -195,6 +210,7 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
                     specialist = data.getExtras().getString("specialist");
                     id_specialist = data.getExtras().getLong("id_specialist");
                     serviceName = data.getExtras().getString("service");
+
                     if (specialization != null) {
                         editText1.setText(specialization);
                         textView2.setVisibility(View.VISIBLE);
@@ -301,46 +317,80 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         }
     };
 
-
-
     private void createApp() {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
         ChildEventListener usersChildEventListener;
 
         //User user = new User();
-        App app = new App(specialization, specialist, serviceName, editText4.getText().toString());
-        List<App> listApp = new ArrayList<App>();
-        listApp.add(app);
+        //App app = new App();
+       // app.setData(specialization, specialist, serviceName, editText4.getText().toString(), patientName, id);
+        HashMap<String, Object> app = new HashMap();
+        app.put("specializationApp", editText1.getText().toString());
+        app.put("specialistApp", editText2.getText().toString());
+        app.put("dateApp", editText4.getText().toString());
+        app.put("serviceApp", editText3.getText().toString());
+        app.put("patientName", patientName);
+        app.put("patientId", id);
+        List<HashMap<String, String>> listApp = new ArrayList();
+
+       // listApp.add(app);
+
+
         database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
-        usersDatabaseReference = database.getReference().child("entries").child(user.getUid());
-        usersChildEventListener = new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+        usersDatabaseReference = database.getReference().child("entries");
 
+//        usersChildEventListener = new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//
+//            }
+//
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//            }
+//        };
+//
+//        usersDatabaseReference.addChildEventListener(usersChildEventListener);
 
-            }
+        // Отправка данные в БД
+        usersDatabaseReference.push().updateChildren(app).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    // Метод который вызывается если сообщение доставлено
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.w(TAG, "Data sent");
+                        Intent intent = new Intent(AppToTheDoctorPageActivity.this, EntryCreatedSuccessfullyPageActivity.class);
+                        intent.putExtra("specialization",editText1.getText().toString());
+                        intent.putExtra("specialist",editText2.getText().toString());
+                        intent.putExtra("serviceName",editText3.getText().toString());
+                        intent.putExtra("date", editText4.getText().toString());
+                        intent.putExtra("patienName", patientName);
+                        startActivity(intent);
+                        finish();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
 
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-            }
-        };
-
-        usersDatabaseReference.addChildEventListener(usersChildEventListener);
-
-        usersDatabaseReference.setValue(listApp);
+                    // Метод который вызывается если сообщение не дошло до сервера или произошла ошибка
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Failed");
+                        Toast.makeText(AppToTheDoctorPageActivity.this, "Не удалось создать заявку! " + e.toString(),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
 //

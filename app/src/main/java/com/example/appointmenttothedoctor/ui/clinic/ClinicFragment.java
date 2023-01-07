@@ -72,6 +72,7 @@ public class ClinicFragment extends Fragment {
         //mapview.getMap().getMapObjects().addPlacemark(point).setIcon(ImageProvider.fromResource(requireContext(), android.R.drawable.checkbox_on_background));
         mapview.getMap().getMapObjects().addPlacemark(TARGET_LOCATION).setIcon(ImageProvider.fromBitmap(bitmap));
 
+        mapview.getMap().getMapObjects().addPlacemark(new Point(53.629276, 55.937113)).setIcon(ImageProvider.fromBitmap(bitmap));
     }
 
 

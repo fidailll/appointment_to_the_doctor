@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -22,10 +24,13 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.appointmenttothedoctor.MyDialogFragment;
 import com.example.appointmenttothedoctor.R;
+import com.example.appointmenttothedoctor.User;
 import com.example.appointmenttothedoctor.databinding.ActivityMenuPageBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.yandex.mapkit.MapKitFactory;
@@ -39,12 +44,13 @@ public class MenuPageActivity extends AppCompatActivity {
     ChildEventListener usersChildEventListener;
     FirebaseDatabase database;
 
-    private final String MAPKIT_API_KEY = "2263dbfd-65f2-43a0-a99d-8687a56af4bd";
+    String userName;
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        MapKitFactory.setApiKey(MAPKIT_API_KEY);
+
         binding = ActivityMenuPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -67,40 +73,41 @@ public class MenuPageActivity extends AppCompatActivity {
 
 
 
-//        database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
-//        usersDatabaseReference = database.getReference().child("users");
-//
-//
-//        /// Выгрузка профиля
-//        usersChildEventListener = new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//                User user = snapshot.getValue(User.class);
-//                if (user.getId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
-//                    String userName = user.getName();
-//                    String userEmail = user.getEmail();
-//                    System.out.println(userName);
-//                }
-//            }
-//
-//            @Override
-//            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//            }
-//
-//            @Override
-//            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-//            }
-//
-//            @Override
-//            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//            }
-//        };
-//
-//        usersDatabaseReference.addChildEventListener(usersChildEventListener);
+        database = FirebaseDatabase.getInstance("https://appointment-to-the-docto-129cb-default-rtdb.europe-west1.firebasedatabase.app/");
+        usersDatabaseReference = database.getReference().child("users");
+
+
+        /// Выгрузка профиля
+        usersChildEventListener = new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                User user = snapshot.getValue(User.class);
+                if (user.getId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+                     userName = user.getName();
+                     id = user.getId();
+                    System.out.println(userName);
+                    System.out.println(id);
+                }
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        };
+
+        usersDatabaseReference.addChildEventListener(usersChildEventListener);
     }
 
     @Override
@@ -158,6 +165,8 @@ public class MenuPageActivity extends AppCompatActivity {
     public void onClickBtAppToTheDoctor(View view) {
         Log.d("onClick", "AppToTheDoctorPageActivity");
         Intent intent = new Intent(MenuPageActivity.this, AppToTheDoctorPageActivity.class);
+        intent.putExtra("id", id);
+        intent.putExtra("patient_name", userName);
         startActivity(intent);
     }
 

@@ -56,7 +56,7 @@ public class AuthPageActivity extends AppCompatActivity {
         Log.d("onClick", "BtForgotYourPassword");
         Intent intent = new Intent(AuthPageActivity.this, PassRecoveryActivity.class);
         startActivity(intent);
-        finish();
+       // finish();
     }
 
 ////    //При инициализации Activity проверяет вошел ли пользователь в данный момент

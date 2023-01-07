@@ -32,7 +32,7 @@
     <string name="enter">Войти</string>
     <string name="send">Отправить</string>
     <string name="forgot_your_password">Забыли пароль?</string>
-    <string name="reestablish">Востановить</string>
+    <string name="reestablish">Восстановить</string>
     <string name="sign_up">Записаться</string>
     <string name="edit_profile">Редактировать профиль</string>
     <string name="resend">Отправить повторно</string>

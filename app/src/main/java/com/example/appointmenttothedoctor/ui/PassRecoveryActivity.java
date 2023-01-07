@@ -1,11 +1,13 @@
 package com.example.appointmenttothedoctor.ui;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,6 +28,13 @@ public class PassRecoveryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pass_recovery);
 
         emailEditText = findViewById(R.id.enterYourEmailEditText);
+        //надпись в AppBar
+        setTitle(R.string.password_recovery);
+
+        ///вызов панели действий
+        ActionBar actionBar = getSupportActionBar();
+        /// показываем кнопку «Назад» на панели действий
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     public void onClickBtReestablish(View view){
@@ -34,12 +43,12 @@ public class PassRecoveryActivity extends AppCompatActivity {
         checkEditText(emailEditText.getText().toString());
     }
 
-    public void onClickBtAuthPage(View view){
-        Log.d("onClick", "Auth");
-        Intent intent = new Intent(PassRecoveryActivity.this, AuthPageActivity.class);
-        startActivity(intent);
-        finish();
-    }
+//    public void onClickBtAuthPage(View view){
+//        Log.d("onClick", "Auth");
+//        Intent intent = new Intent(PassRecoveryActivity.this, AuthPageActivity.class);
+//        startActivity(intent);
+//        finish();
+//    }
 
     /// Проверка на наличия текста в EditText
     private void checkEditText(String email){
@@ -71,5 +80,17 @@ public class PassRecoveryActivity extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    // это событие активирует обратную
+    // функция для кнопки при нажатии
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

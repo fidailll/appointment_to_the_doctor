@@ -4,15 +4,19 @@ public class App {
     String specialization;
     String specialist;
     String date;
-    String doctor;
+    String service;
+    String patientName;
+    String patientId;
 
+    public App() {};
 
-
-    public App(String specialization, String specialist, String date, String doctor){
+    public App(String specialization, String specialist, String date, String service, String patientName, String patientId){
   this.specialization = specialization;
   this.specialist = specialist;
-  this.doctor = doctor;
+  this.service = service;
   this.date = date;
+  this.patientName = patientName;
+  this.patientId = patientId;
     }
 
     public String getSpecialization(){
@@ -25,13 +29,16 @@ public class App {
         return date;
     }
     public String getDate(){
-        return doctor;
+        return service;
     }
+    public String getPatientName() {return patientName;}
 
-    public void setData(String specialization, String specialist, String doctor, String date){
+    public void setData(String specialization, String specialist, String service, String date, String patientName, String patientId){
         this.specialization = specialization;
         this.specialist = specialist;
-        this.doctor = doctor;
+        this.service = service;
         this.date = date;
+        this.patientName = patientName;
+        this.patientId = patientId;
     }
 }

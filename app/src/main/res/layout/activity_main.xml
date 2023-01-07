@@ -10,7 +10,7 @@
 <!--    app:layout_constraintRight_toRightOf="parent">-->
 <!--    </ListView>-->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,34 +21,7 @@
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/welcome_app"
-        android:textSize="22sp" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="247dp"
-        android:layout_height="304dp"
-        app:srcCompat="@drawable/hello_doctor1"
-        android:layout_marginTop="10dp"
-        />
-
-    <Button
-        android:id="@+id/btRegs"
-        android:layout_width="255dp"
-        android:layout_height="60dp"
-        android:fontFamily="@font/noto_sans"
-        android:text="@string/regs"
-        android:onClick="onClickBtRegs"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:cornerRadius="15dp"
-        android:layout_marginTop="10dp"/>
-
-<!--    <CheckedTextView-->
+    <!--    <CheckedTextView-->
 <!--        android:id="@+id/checkedTextView"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
@@ -57,17 +30,60 @@
 <!--        android:textColor="@color/help_text"-->
 <!--        android:layout_marginTop="30dp"/>-->
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:maxLines="3"
+        android:text="@string/welcome_app"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="247dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hello_doctor1" />
+
+    <Button
+        android:id="@+id/btRegs"
+        android:layout_width="255dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/noto_sans"
+        android:onClick="onClickBtRegs"
+        android:text="@string/regs"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
     <Button
         android:id="@+id/btAuth"
         android:layout_width="255dp"
         android:layout_height="60dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/noto_sans"
-        android:text="@string/auth"
         android:onClick="onClickBtAuth"
+        android:text="@string/auth"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        app:cornerRadius="15dp" />
-</LinearLayout>
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btRegs" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
