@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.yandex.mapkit.MapKitFactory;
 
 public class MenuPageActivity extends AppCompatActivity {
 
@@ -38,10 +39,12 @@ public class MenuPageActivity extends AppCompatActivity {
     ChildEventListener usersChildEventListener;
     FirebaseDatabase database;
 
+    private final String MAPKIT_API_KEY = "2263dbfd-65f2-43a0-a99d-8687a56af4bd";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        MapKitFactory.setApiKey(MAPKIT_API_KEY);
         binding = ActivityMenuPageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
