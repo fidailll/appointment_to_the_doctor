@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -24,14 +24,15 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:gravity="center_horizontal|top"
         android:orientation="horizontal"
-        tools:actionBarNavMode="list"
-        tools:ignore="MissingConstraints,UselessParent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints,UselessParent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -41,9 +42,10 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/button_light_green"
+            android:onClick="onClickBtAppToTheDoctor"
             app:cardBackgroundColor="@color/button_light_green"
-            app:cardCornerRadius="25dp"
-            android:onClick="onClickBtAppToTheDoctor">
+            app:cardCornerRadius="25dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -55,43 +57,44 @@
                 tools:layout_editor_absoluteX="1dp"
                 tools:layout_editor_absoluteY="1dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center_horizontal|top"
-                android:orientation="horizontal"
-                tools:actionBarNavMode="list"
-                tools:ignore="MissingConstraints,UselessParent"
-                tools:layout_editor_absoluteX="1dp"
-                tools:layout_editor_absoluteY="1dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center_horizontal|top"
+                    android:orientation="horizontal"
+                    tools:actionBarNavMode="list"
+                    tools:ignore="MissingConstraints,UselessParent"
+                    tools:layout_editor_absoluteX="1dp"
+                    tools:layout_editor_absoluteY="1dp">
 
-                <ImageView
-                    android:id="@+id/doctorImageView"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/doctor1" />
-                <ImageView
-                    android:id="@+id/circleImageView"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/circle_image"
-                    android:gravity="center"
-                    android:scaleType="center"
-                    android:layout_marginTop="10dp" />
-            </LinearLayout>
+                    <ImageView
+                        android:id="@+id/doctorImageView"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/doctor1" />
+
+                    <ImageView
+                        android:id="@+id/circleImageView"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:scaleType="center"
+                        android:src="@drawable/circle_image" />
+                </LinearLayout>
+
                 <TextView
                     android:id="@+id/emailVerified"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/app_name"
-                    android:textSize="18sp"
-                    android:textColor="@color/help_text"
-                    android:textStyle="bold"
                     android:fontFamily="@font/noto_sans"
-                    />
+                    android:text="@string/app_name"
+                    android:textColor="@color/help_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -104,9 +107,10 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/button_light_green"
+            android:onClick="onClickBtChatWithADoctor"
             app:cardBackgroundColor="@color/button_light_green"
-            app:cardCornerRadius="25dp"
-            android:onClick="onClickBtChatWithADoctor">
+            app:cardCornerRadius="25dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -135,49 +139,67 @@
                         android:layout_height="70dp"
                         android:layout_weight="1"
                         android:src="@drawable/chat_icon" />
+
                     <ImageView
                         android:id="@+id/circleImageView1"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:src="@drawable/circle_image"
                         android:gravity="center"
                         android:scaleType="center"
-                        android:layout_marginTop="10dp" />
+                        android:src="@drawable/circle_image" />
                 </LinearLayout>
+
                 <TextView
                     android:id="@+id/emailVerified1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/write_to_the_doctor"
-                    android:textSize="18sp"
-                    android:textColor="@color/help_text"
-                    android:textStyle="bold"
                     android:fontFamily="@font/noto_sans"
-                    />
+                    android:text="@string/write_to_the_doctor"
+                    android:textColor="@color/help_text"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/noto_sans"
+        android:text="@string/recording_history"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/imageButton1"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:background="#008C0101"-->
-<!--            android:contentDescription="@string/todo"-->
-<!--            android:src="@drawable/bt_icon1" />-->
+    <ImageView
+        android:id="@+id/circleImageView2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:scaleType="center"
+        android:src="@drawable/circle_image"
+        app:layout_constraintStart_toEndOf="@+id/head"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/imageButton2"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_margin="10dp"-->
-<!--            android:background="#00FFFFFF"-->
-<!--            android:contentDescription="@string/todo"-->
-<!--            android:src="@drawable/bt_icon2" />-->
+    <ListView
+        android:id="@+id/specilizationListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:divider="@android:color/transparent"
+        android:transcriptMode="alwaysScroll"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/head"
+        tools:listitem="@layout/application_item"/>
 
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

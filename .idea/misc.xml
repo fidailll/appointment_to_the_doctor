@@ -79,6 +79,7 @@
         <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/activity_specialist_page.xml" value="0.19756838905775076" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/activity_specilization_page.xml" value="0.2875905797101449" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/activity_splash_page.xml" value="0.19832826747720364" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/application_item.xml" value="0.17525773195876287" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/auth_page.xml" value="0.33" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/date_item.xml" value="0.19832826747720364" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/dialog.xml" value="0.33" />
@@ -92,6 +93,7 @@
         <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/layout/specilization_item.xml" value="0.5090579710144928" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/menu/bottom_nav_menu.xml" value="0.4015384615384615" />
         <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/menu/sample_menu.xml" value="0.33" />
+        <entry key="..\:/Users/fidail/AndroidStudioProjects/appointment_to_the_doctor/app/src/main/res/xml/network_security_config.xml" value="0.15552178318135765" />
       </map>
     </option>
   </component>
@@ -100,5 +102,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.26874366767983787" />
+      </ProjectState>
+    </option>
   </component>
 </project>

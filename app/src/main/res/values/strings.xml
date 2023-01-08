@@ -7,6 +7,21 @@
     <string name="password_recovery">Восстановление пароля</string>
     <string name="experience">Стаж</string>
     <string name="select_a_date">Выберите дату</string>
+    <string name="choose_a_specialization">Выберите специализацию</string>
+    <string name="choose_a_specialist">Выберите специалиста</string>
+    <string name="date_of_receipt">Дата приема</string>
+    <string name="user">Пользователь:</string>
+    <string name="mail">Почта:</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="noris">Норис</string>
+    <string name="address">Адрес:</string>
+    <string name="address_noris">ул. Худайбердина, 101, Стерлитамак</string>
+    <string name="working_hours">Время работы:</string>
+    <string name="opening_hours_weekdays">Будни  08:00 – 19:00</string>
+    <string name="opening_hours_saturday">Суббота  08:00 – 16:00</string>
+    <string name="opening_hours_sunday">Воскресенье  Выходной</string>
+    <string name="recording_history">История записей</string>
+
 
 
     <!-- Названия Activity-->
@@ -50,20 +65,6 @@
     <string name="patronymic">Отчество</string>
     <string name="birthday">Дата рождения</string>
     <string name="fio">ФИО</string>
-
-    <!-- Надписи в TextView -->
-    <string name="choose_a_specialization">Выберите специализацию</string>
-    <string name="choose_a_specialist">Выберите специалиста</string>
-    <string name="date_of_receipt">Дата приема</string>
-    <string name="user">Пользователь:</string>
-    <string name="mail">Почта:</string>
-    <string name="title_activity_maps">MapsActivity</string>
-    <string name="noris">Норис</string>
-    <string name="address">Адрес:</string>
-    <string name="address_noris">ул. Худайбердина, 101, Стерлитамак</string>
-    <string name="working_hours">Время работы:</string>
-    <string name="opening_hours_weekdays">Будни  08:00 – 19:00</string>
-    <string name="opening_hours_saturday">Суббота  08:00 – 16:00</string>
-    <string name="opening_hours_sunday">Воскресенье  Выходной</string>
+=
 
 </resources>
