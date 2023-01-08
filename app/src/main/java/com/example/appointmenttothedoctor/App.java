@@ -1,43 +1,43 @@
 package com.example.appointmenttothedoctor;
 
 public class App {
-    String specialization;
-    String specialist;
-    String date;
-    String service;
-    String patientName;
-    String patientId;
+    private String specializationApp;
+    private String specialistApp;
+    private String dateApp;
+    private String serviceApp;
+    private String patientName;
+    private String patientId;
 
     public App() {};
 
-    public App(String specialization, String specialist, String date, String service, String patientName, String patientId){
-  this.specialization = specialization;
-  this.specialist = specialist;
-  this.service = service;
-  this.date = date;
-  this.patientName = patientName;
-  this.patientId = patientId;
+    public App(String specializationApp, String specialistApp, String dateApp, String serviceApp, String patientName, String patientId){
+        this.dateApp = dateApp;
+        this.patientId = patientId;
+        this.patientName = patientName;
+        this.serviceApp = serviceApp;
+        this.specialistApp = specialistApp;
+        this.specializationApp = specializationApp;
     }
 
-    public String getSpecialization(){
-        return specialization;
+    public String getSpecializationApp(){
+        return specializationApp;
     }
-    public String getSpecialist(){
-        return specialist;
+    public String getSpecialistApp(){return specialistApp;}
+    public String getDateApp(){
+        return dateApp;
     }
-    public String getDoctor(){
-        return date;
-    }
-    public String getDate(){
-        return service;
+    public String getServiceApp(){
+        return serviceApp;
     }
     public String getPatientName() {return patientName;}
+    public String getPatientId() {return patientId;}
 
-    public void setData(String specialization, String specialist, String service, String date, String patientName, String patientId){
-        this.specialization = specialization;
-        this.specialist = specialist;
-        this.service = service;
-        this.date = date;
+
+    public void setData(String specializationApp, String specialistApp, String serviceApp, String dateApp, String patientName, String patientId){
+        this.specializationApp = specializationApp;
+        this.specialistApp = specialistApp;
+        this.serviceApp = serviceApp;
+        this.dateApp = dateApp;
         this.patientName = patientName;
         this.patientId = patientId;
     }

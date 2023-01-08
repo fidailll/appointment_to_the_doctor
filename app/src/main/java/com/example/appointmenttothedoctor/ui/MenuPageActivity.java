@@ -39,7 +39,6 @@ public class MenuPageActivity extends AppCompatActivity {
 
     private ActivityMenuPageBinding binding;
 
-
     DatabaseReference usersDatabaseReference;
     ChildEventListener usersChildEventListener;
     FirebaseDatabase database;

@@ -1,7 +1,6 @@
 package com.example.appointmenttothedoctor;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +28,9 @@ public class ApplicationAdapter extends ArrayAdapter<App> {
         TextView doctorValue = (TextView) convertView.findViewById(R.id.doctorValue);
         TextView specialization = (TextView) convertView.findViewById(R.id.specialization);
 
-        dateValue.setText(application.getDate());
-        doctorValue.setText(application.getDoctor());
-        specialization.setText(application.getSpecialization());
+        dateValue.setText(application.getDateApp());
+        doctorValue.setText(application.getSpecialistApp());
+        specialization.setText(application.getSpecializationApp());
 
         return convertView;
     }
