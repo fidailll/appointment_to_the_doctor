@@ -22,6 +22,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.appointmenttothedoctor.CallDialogFragment;
 import com.example.appointmenttothedoctor.R;
 import com.example.appointmenttothedoctor.User;
+import com.example.appointmenttothedoctor.databinding.ActivityChatPageBinding;
 import com.example.appointmenttothedoctor.databinding.ActivityMenuPageBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -41,6 +42,8 @@ public class MenuPageActivity extends AppCompatActivity {
 
     String userName;
     String id;
+    String phone;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +83,12 @@ public class MenuPageActivity extends AppCompatActivity {
                 if (user.getId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
                      userName = user.getName();
                      id = user.getId();
+                     phone = user.getPhone();
+                     email = user.getEmail();
                     System.out.println(userName);
                     System.out.println(id);
+                    System.out.println(phone);
+                    System.out.println(email);
                 }
             }
 
@@ -173,9 +180,13 @@ public class MenuPageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickBtChatWithADoctor(View view) {
-        Log.d("onClick", "СhatPageActivity");
-        Intent intent = new Intent(MenuPageActivity.this, СhatPageActivity.class);
+    public void onClickBtPatientCard(View view) {
+        Log.d("onClick", "PatientCardPageActivity");
+        Intent intent = new Intent(MenuPageActivity.this, PatientCardPageActivity.class);
+        intent.putExtra("id", id);
+        intent.putExtra("userName", userName);
+        intent.putExtra("email", email);
+        intent.putExtra("phone", phone);
         startActivity(intent);
     }
 

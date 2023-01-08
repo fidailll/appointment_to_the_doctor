@@ -67,7 +67,10 @@ public class SpecialistPageActivity extends AppCompatActivity {
               //  System.out.println(snapshot.child("image").toString());
                 AwesomeSpecialist specialist = snapshot.getValue(AwesomeSpecialist.class);
               //  System.out.println(specialist.toString());
-                adapter.add(specialist);
+                if(previousChildName != null){
+                    adapter.add(specialist);
+                }
+
             }
 
             @Override

@@ -20,7 +20,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.appointmenttothedoctor.R;
 
-
 import com.example.appointmenttothedoctor.databinding.FragmentProfileBinding;
 import com.example.appointmenttothedoctor.ui.MainActivity;
 import com.example.appointmenttothedoctor.ui.MenuPageActivity;
@@ -56,20 +55,17 @@ public class ProfileFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.userName;
-        profileViewModel.getUser().observe(getViewLifecycleOwner(), textView::setText);
-
-       final TextView textView1 = binding.email;
-        profileViewModel.getEmail().observe(getViewLifecycleOwner(), textView1::setText);
-
+        final TextView textView1 = binding.email;
         final TextView textView2 = binding.emailVerified;
-        profileViewModel.getEmailVerified().observe(getViewLifecycleOwner(), textView2::setText);
-
         final ImageView imageView = binding.avatarImage;
-
+        final Button btResend = binding.btResend;
         final TextView textView3 = binding.user;
-        textView3.setText(R.string.user);
-
         final TextView textView4 = binding.mail;
+
+        profileViewModel.getUser().observe(getViewLifecycleOwner(), textView::setText);
+        profileViewModel.getEmail().observe(getViewLifecycleOwner(), textView1::setText);
+        profileViewModel.getEmailVerified().observe(getViewLifecycleOwner(), textView2::setText);
+        textView3.setText(R.string.user);
         textView4.setText(R.string.mail);
 
 
@@ -81,7 +77,7 @@ public class ProfileFragment extends Fragment {
                      }
                  });
 
-        final Button btResend = binding.btResend;
+
 
         profileViewModel.getBtResend().observe(
                 getViewLifecycleOwner(), new Observer<Boolean>() {

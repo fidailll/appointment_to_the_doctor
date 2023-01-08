@@ -107,7 +107,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@color/button_light_green"
-            android:onClick="onClickBtChatWithADoctor"
+            android:onClick="onClickBtPatientCard"
             app:cardBackgroundColor="@color/button_light_green"
             app:cardCornerRadius="25dp">
 
@@ -193,7 +193,7 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="fill_parent"
-        android:layout_height="300dp"
+        android:layout_height="350dp"
         android:layout_marginBottom="1dp"
         android:fillViewport="true"
         android:gravity="center"

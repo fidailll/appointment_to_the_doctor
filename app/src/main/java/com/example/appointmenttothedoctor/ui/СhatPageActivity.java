@@ -8,11 +8,15 @@ import androidx.navigation.ui.AppBarConfiguration;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.example.appointmenttothedoctor.R;
+import com.squareup.picasso.Picasso;
 
 public class СhatPageActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,5 +41,4 @@ public class СhatPageActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

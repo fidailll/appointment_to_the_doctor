@@ -60,8 +60,11 @@ public class SpecilizationPageActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                  AwesomeSpecialization service = snapshot.getValue(AwesomeSpecialization.class);
                 //service.getService();
-               // System.out.println(snapshot.child("specialist").toString());
-                 adapter.add(service);
+               // System.out.println(snapshot.child("specialist").toString());\
+                if(previousChildName != null){
+                    adapter.add(service);
+                }
+
 
             }
 

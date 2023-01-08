@@ -10,8 +10,8 @@
     <string name="choose_a_specialization">Выберите специализацию</string>
     <string name="choose_a_specialist">Выберите специалиста</string>
     <string name="date_of_receipt">Дата приема</string>
-    <string name="user">Пользователь:</string>
-    <string name="mail">Почта:</string>
+    <string name="user">Пользователь</string>
+    <string name="mail">Почта</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="noris">Норис</string>
     <string name="address">Адрес:</string>
@@ -23,7 +23,6 @@
     <string name="recording_history">История записей</string>
     <string name="your_applications">Здесь будут отображены ваши записи к врачу</string>
     <string name="patient_card">Карта пациента</string>
-
 
 
     <!-- Названия Activity-->
@@ -67,6 +66,6 @@
     <string name="patronymic">Отчество</string>
     <string name="birthday">Дата рождения</string>
     <string name="fio">ФИО</string>
-=
+    =
 
 </resources>
