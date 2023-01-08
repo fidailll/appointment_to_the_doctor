@@ -21,6 +21,8 @@
     <string name="opening_hours_saturday">Суббота  08:00 – 16:00</string>
     <string name="opening_hours_sunday">Воскресенье  Выходной</string>
     <string name="recording_history">История записей</string>
+    <string name="your_applications">Здесь будут отображены ваши записи к врачу</string>
+    <string name="patient_card">Карта пациента</string>
 
 
 

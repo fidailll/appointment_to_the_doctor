@@ -1,7 +1,5 @@
 package com.example.appointmenttothedoctor.ui;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,7 +7,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,7 +19,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.appointmenttothedoctor.MyDialogFragment;
+import com.example.appointmenttothedoctor.CallDialogFragment;
 import com.example.appointmenttothedoctor.R;
 import com.example.appointmenttothedoctor.User;
 import com.example.appointmenttothedoctor.databinding.ActivityMenuPageBinding;
@@ -33,7 +30,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.yandex.mapkit.MapKitFactory;
 
 public class MenuPageActivity extends AppCompatActivity {
 
@@ -139,7 +135,7 @@ public class MenuPageActivity extends AppCompatActivity {
 
     public void onCreateDialog() {
         FragmentManager manager = getSupportFragmentManager();
-        MyDialogFragment myDialogFragment = new MyDialogFragment();
+        CallDialogFragment myDialogFragment = new CallDialogFragment();
 
         FragmentTransaction transaction = manager.beginTransaction();
         myDialogFragment.show(transaction, "dialog");
@@ -169,11 +165,20 @@ public class MenuPageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickBtSignUp(View view) {
+        Log.d("onClick", "AppToTheDoctorPageActivity");
+        Intent intent = new Intent(MenuPageActivity.this, AppToTheDoctorPageActivity.class);
+        intent.putExtra("id", id);
+        intent.putExtra("patient_name", userName);
+        startActivity(intent);
+    }
+
     public void onClickBtChatWithADoctor(View view) {
         Log.d("onClick", "СhatPageActivity");
         Intent intent = new Intent(MenuPageActivity.this, СhatPageActivity.class);
         startActivity(intent);
     }
+
 
     private void onClickCall(){
         Log.d("onClick", "Call");

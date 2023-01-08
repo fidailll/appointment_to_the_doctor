@@ -10,7 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
-public class MyDialogFragment extends DialogFragment {
+public class CallDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class MyDialogFragment extends DialogFragment {
         return builder
                 //.setTitle("")
                //.setIcon(android.R.drawable.ic_dialog_alert)
-                .setView(R.layout.dialog)
+                .setView(R.layout.call_dialog)
                 .setPositiveButton("Позвонить", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
@@ -32,6 +32,5 @@ public class MyDialogFragment extends DialogFragment {
                 .setNegativeButton("Закрыть", null)
                 .create();
     }
-
 
 }

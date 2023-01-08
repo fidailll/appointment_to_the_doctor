@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,10 +16,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.appointmenttothedoctor.App;
+import com.example.appointmenttothedoctor.AppDialogFragment;
 import com.example.appointmenttothedoctor.ApplicationAdapter;
+import com.example.appointmenttothedoctor.CallDialogFragment;
 import com.example.appointmenttothedoctor.R;
 import com.example.appointmenttothedoctor.User;
 import com.example.appointmenttothedoctor.databinding.FragmentHomeBinding;
@@ -50,6 +55,7 @@ public class HomeFragment extends Fragment {
 
     ListView appListView;
     CardView cardView;
+    //Button button;
 
     List<App> application = new ArrayList<>();
     List<String> listItem= new ArrayList<>();
@@ -67,15 +73,26 @@ public class HomeFragment extends Fragment {
 
         adapter = new ApplicationAdapter(getContext(), R.layout.application_item, application);
 
+        //button = binding.btSignUp;
         appListView =  binding.appListView;
          cardView = binding.appCardView;
 
         View root = binding.getRoot();
 
+        selectedClickItem();
         getEntries();
         clickItem();
 
+
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
        return root;
+
 
     }
 
@@ -125,15 +142,28 @@ public class HomeFragment extends Fragment {
         applicationDatabaseReference.addChildEventListener(applicationChildEventListener);
     }
 
+    private void  selectedClickItem(){
+        appListView.setOnLongClickListener( new AdapterView.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                System.out.println("dfsfdsfdsf");
+                return false;
+            }
+
+
+        });
+    }
+
+
+
     private  void clickItem(){
+
         appListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //  adapter.getItem(position);
-                // listItem.get(adapter.getItemId(position));
+  //               onCreateDialog();
                 String child = listItem.get((int) adapter.getItemId(position) );
-                //System.out.println(listItem.get((int) adapter.getItemId(position)));
-                //System.out.println(listItem.get(position));
-                //  System.out.println( listItem);
                 applicationDatabaseReference.child(child).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
                             // Метод который вызывается если сообщение доставлено
                             @Override
@@ -166,6 +196,13 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    public void onCreateDialog() {
+        FragmentManager manager =  getActivity().getSupportFragmentManager();
+        AppDialogFragment myDialogFragment = new AppDialogFragment();
+
+        FragmentTransaction transaction = manager.beginTransaction();
+        myDialogFragment.show(transaction, "dialog");
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
