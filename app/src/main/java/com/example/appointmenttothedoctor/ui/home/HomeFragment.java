@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
 
         View root = binding.getRoot();
 
-        selectedClickItem();
+      //  selectedClickItem();
         getEntries();
         clickItem();
 
@@ -142,25 +142,24 @@ public class HomeFragment extends Fragment {
         applicationDatabaseReference.addChildEventListener(applicationChildEventListener);
     }
 
-    private void  selectedClickItem(){
-        appListView.setOnLongClickListener( new AdapterView.OnLongClickListener() {
-
-            @Override
-            public boolean onLongClick(View v) {
-                System.out.println("dfsfdsfdsf");
-                return false;
-            }
-
-
-        });
-    }
+//    private void  selectedClickItem(){
+//        appListView.setOnLongClickListener( new AdapterView.OnLongClickListener() {
+//
+//            @Override
+//            public boolean onLongClick(View v) {
+//                System.out.println("dfsfdsfdsf");
+//                return false;
+//            }
+//
+//
+//        });
+//    }
 
 
 
     private  void clickItem(){
 
         appListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
   //               onCreateDialog();
                 String child = listItem.get((int) adapter.getItemId(position) );

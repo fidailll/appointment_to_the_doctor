@@ -292,7 +292,6 @@ public class AppToTheDoctorPageActivity extends AppCompatActivity {
         timePickerDialog = new TimePickerDialog(AppToTheDoctorPageActivity.this, t,
                 dateAndTime.get(Calendar.HOUR_OF_DAY),
                 dateAndTime.get(Calendar.MINUTE), true);
-
         timePickerDialog.show();
         setDate(v);
 

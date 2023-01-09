@@ -3,7 +3,6 @@ package com.example.appointmenttothedoctor;
 public class AwesomeSpecialization {
     String service;
 
-
     public AwesomeSpecialization(){}
 
    public AwesomeSpecialization(String specialization){

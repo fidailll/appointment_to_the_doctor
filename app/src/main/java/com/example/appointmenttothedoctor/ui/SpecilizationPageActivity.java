@@ -58,13 +58,10 @@ public class SpecilizationPageActivity extends AppCompatActivity {
         servicesChildEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                 AwesomeSpecialization service = snapshot.getValue(AwesomeSpecialization.class);
+                 AwesomeSpecialization spec = snapshot.getValue(AwesomeSpecialization.class);
                 //service.getService();
                // System.out.println(snapshot.child("specialist").toString());\
-                if(previousChildName != null){
-                    adapter.add(service);
-                }
-
+                    adapter.add(spec);
 
             }
 

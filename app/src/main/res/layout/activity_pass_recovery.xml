@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3"
-        android:textSize="32sp"/>
+        android:textSize="24sp"/>
 
 <!--    <ImageView-->
 <!--        android:id="@+id/imageView1"-->
@@ -47,6 +47,7 @@
         android:textAlignment="center"
         android:fontFamily="@font/noto_sans"
         android:textStyle="bold"
+        android:textSize="12sp"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +62,7 @@
         android:layout_height="60dp"
         android:fontFamily="@font/noto_sans"
         android:text="@string/reestablish"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:cornerRadius="15dp"
         android:onClick="onClickBtReestablish"

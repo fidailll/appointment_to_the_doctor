@@ -27,6 +27,7 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="25dp"
+        android:textSize="12sp"
         android:background="@drawable/rounded_corner_view"
         android:cursorVisible="false"
         android:drawableEnd="@drawable/circle_image1"
@@ -58,6 +59,7 @@
 
     <EditText
         android:id="@+id/editText2"
+        android:textSize="12sp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
@@ -77,6 +79,7 @@
 
     <TextView
         android:id="@+id/textView3"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -91,6 +94,7 @@
 
     <EditText
         android:id="@+id/editText3"
+        android:textSize="12sp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
@@ -125,6 +129,7 @@
     <EditText
         android:id="@+id/editText4"
         android:layout_width="match_parent"
+        android:textSize="12sp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="5dp"
@@ -148,7 +153,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/noto_sans"
         android:text="@string/sign_up"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"

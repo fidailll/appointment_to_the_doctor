@@ -63,7 +63,7 @@
                 android:layout_toEndOf="@id/avatarImage"
                 android:maxLines="5"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/avatarImage"
                 app:layout_constraintTop_toBottomOf="@+id/user" />
@@ -94,7 +94,7 @@
                 android:layout_toEndOf="@id/avatarImage"
                 android:maxLines="3"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/avatarImage"
                 app:layout_constraintTop_toBottomOf="@+id/mail" />
@@ -115,7 +115,7 @@
         android:maxLines="5"
         android:textAlignment="center"
         android:textColor="@color/help_text"
-        android:textSize="14sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView2" />
@@ -127,7 +127,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/noto_sans"
         android:text="@string/resend"
-        android:textSize="16sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:cornerRadius="15dp"
         app:layout_constraintBottom_toBottomOf="parent"

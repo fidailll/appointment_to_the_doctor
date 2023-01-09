@@ -65,9 +65,7 @@ public class ServicePageActivity extends AppCompatActivity {
                 //  System.out.println(snapshot.child("image").toString());
                 AwesomeService service = snapshot.getValue(AwesomeService.class);
                 //  System.out.println(specialist.toString());
-                if(previousChildName != null) {
                     adapter.add(service);
-                }
             }
 
             @Override

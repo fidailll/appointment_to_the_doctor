@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:text="Text"
             android:id="@+id/itemTextView"
-            android:textSize="18dp"
+            android:textSize="12dp"
             />
     </androidx.cardview.widget.CardView>
 </LinearLayout>

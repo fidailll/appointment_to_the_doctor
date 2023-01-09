@@ -76,7 +76,6 @@ public class ClinicFragment extends Fragment {
     }
 
 
-
     @Override
     public void onStop() {
         mapview.onStop();

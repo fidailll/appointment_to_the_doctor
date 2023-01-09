@@ -246,7 +246,7 @@
                 android:maxLines="3"
                 android:text="@string/your_applications"
                 android:textColor="@color/help_text"
-                android:textSize="16dp"
+                android:textSize="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -261,7 +261,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/noto_sans"
                 android:text="@string/sign_up"
-                android:textSize="16sp"
+                android:textSize="12sp"
                 android:onClick="onClickBtSignUp"
                 android:textStyle="bold"
                 app:cornerRadius="15dp"

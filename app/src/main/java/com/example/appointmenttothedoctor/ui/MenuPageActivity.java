@@ -91,7 +91,6 @@ public class MenuPageActivity extends AppCompatActivity {
                     System.out.println(email);
                 }
             }
-
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
             }
